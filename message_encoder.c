@@ -132,7 +132,7 @@ bool Frame(MessageInfo* msg, MessageFrame* frame) {
 bool DeFrame(MessageFrame* frame, MessageInfo* msg) {
     /* int l = ntohs(frame->LENGTH); */
     /* int d = ntohs(frame->DATA); */
-    char str[frame->LENGTH];
+    char* str = (char*)calloc(frame->LENGTH, sizeof(char));
     /* char str[l]; */
     uint8_t* f = (uint8_t*)&(frame->DATA);
     /* uint8_t* f = (uint8_t*)&(d); */
@@ -180,13 +180,18 @@ uint8_t get_byte_from(uint32_t value, int start_bit) {
  *
  */
 uint8_t* DecodeFrame(uint8_t* inBuf) {
+    printf("%s  ---> %d\n", inBuf, inBuf);
     MessageFrame* mf = (MessageFrame*)inBuf;
-    char buffer[9];
-    buffer[8] = '\0';
-    int2bin(mf->DATA, buffer, 8);
-    printf("%s  len: %lu\n", buffer, strlen(buffer));
+    MessageFrame* nf = message_frame_create();
+    printf("Frame LENGTH: %d SYN: %d DATA: %d\n", mf->LENGTH, mf->SYN,
+           mf->DATA);
+    nf->SYN = ntohs(mf->SYN);
+    nf->LENGTH = ntohs(mf->LENGTH);
+    nf->DATA = ntohs(mf->DATA);
+    printf("Frame LENGTH: %d SYN: %d DATA: %d\n", nf->LENGTH, nf->SYN,
+           nf->DATA);
     MessageInfo* mi = message_info_create();
-    DeFrame(mf, mi);
+    DeFrame(nf, mi);
     return (uint8_t*)mi->str;
 }
 
@@ -195,11 +200,11 @@ uint8_t* DecodeFrame(uint8_t* inBuf) {
  */
 MessageFrameConverter mf_converter;
 uint8_t* EncodeFrame(MessageFrame* frameBuf) {
-    struct MessageFrame frame = {
-        .SYN = __bswap_32(frameBuf->SYN),
-        .LENGTH = __bswap_32(frameBuf->LENGTH),
-        .DATA = __bswap_32(frameBuf->DATA),
-    };
-    mf_converter.frame = frame;
+    /* struct MessageFrame frame = { */
+    /*     .SYN = (frameBuf->SYN), */
+    /*     .LENGTH = (frameBuf->LENGTH), */
+    /*     .DATA = (frameBuf->DATA), */
+    /* }; */
+    mf_converter.frame = *frameBuf;
     return mf_converter.bytes;
 }

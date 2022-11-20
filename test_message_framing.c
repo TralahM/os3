@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
     }
     fclose(fp);
     // Testing parity checks
-    for (int i = 0; i < 54; i++) {
+    for (int i = 0; i < 4; i++) {
         int x = (rand() % 255) - i;
         char pbuf[9];
         char qbuf[9];

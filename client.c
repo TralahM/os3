@@ -24,12 +24,12 @@ int main(int argc, char* argv[]) {
     if ((clientEncoder = fork()) < 0) {
         perror("Client Encoder create failed");
     } else if (clientEncoder > 0) {  // ClientDecoder Process
+        /* sem_wait(&full); */
         size_t respSize;
         uint8_t* returnBuffer = (uint8_t*)calloc(4, sizeof(uint8_t));
         char* output_file = "result.txt";
         FILE* of = fopen(output_file, "a");
         while ((respSize = recv(sock, &returnBuffer, 4, 0)) > 0) {
-            /* sem_wait(&full); */
             char* reply = (char*)DecodeFrame(returnBuffer);
             fputs(reply, of);
             printf("\033[34m--->: %s\033[0m\n", reply);
@@ -38,6 +38,7 @@ int main(int argc, char* argv[]) {
         fclose(of);
         waitpid(clientEncoder, NULL, 0);
         close(sock);
+        exit(0);
     } else {  // Encoder Process
         /* printf("clientEncoder process."); */
         // read input file
@@ -46,6 +47,7 @@ int main(int argc, char* argv[]) {
             MessageInfo* m_info = message_info_create();
             MessageFrame* m_frame = message_frame_create();
             fgets(buffer, 4, fp);
+            /* printf("\nBuffer: %s\n", buffer); */
             strcpy(m_info->str, buffer);
             Frame(m_info, m_frame);
             printf("%s", EncodeFrame(m_frame));
@@ -54,9 +56,7 @@ int main(int argc, char* argv[]) {
                 DieWithSystemMessage("SendMsg Failed\n");
             }
         }
-        if (feof(fp)) {
-            fclose(fp);
-            exit(0);
-        }
+        fclose(fp);
+        exit(0);
     }
 }
