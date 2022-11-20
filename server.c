@@ -34,7 +34,7 @@ void* thread_handler(void* arg) {
             return NULL;
         }
         char* modified_msg = replace(msg, "a", "A");
-        printf("%s --> %s", msg, modified_msg);
+        printf("%s --> %s\n", msg, modified_msg);
         enQueue(threadQe, modified_msg);
         pthread_mutex_unlock(&mutex_e);
         sem_post(&full);
@@ -55,7 +55,7 @@ void* thread_handler(void* arg) {
             return NULL;
         }
         char* modified_msg = replace(msg, "e", "E");
-        printf("%s --> %s", msg, modified_msg);
+        printf("%s --> %s\n", msg, modified_msg);
         enQueue(threadQi, modified_msg);
         pthread_mutex_unlock(&mutex_e);
         pthread_mutex_unlock(&mutex_i);
@@ -78,7 +78,7 @@ void* thread_handler(void* arg) {
             return NULL;
         }
         char* modified_msg = replace(msg, "i", "I");
-        printf("%s --> %s", msg, modified_msg);
+        printf("%s --> %s\n", msg, modified_msg);
         enQueue(threadQo, modified_msg);
         pthread_mutex_unlock(&mutex_o);
         pthread_mutex_unlock(&mutex_i);
@@ -101,7 +101,7 @@ void* thread_handler(void* arg) {
             return NULL;
         }
         char* modified_msg = replace(msg, "o", "O");
-        printf("%s --> %s", msg, modified_msg);
+        printf("%s --> %s\n", msg, modified_msg);
         enQueue(threadQu, modified_msg);
         pthread_mutex_unlock(&mutex_o);
         pthread_mutex_unlock(&mutex_u);
@@ -124,7 +124,7 @@ void* thread_handler(void* arg) {
             return NULL;
         }
         char* modified_msg = replace(msg, "u", "U");
-        printf("%s --> %s", msg, modified_msg);
+        printf("%s --> %s\n", msg, modified_msg);
         enQueue(threadQd, modified_msg);
         pthread_mutex_unlock(&mutex_u);
         pthread_mutex_unlock(&mutex_d);
@@ -172,7 +172,7 @@ void* thread_handler(void* arg) {
             sem_post(&full_w);
             return NULL;
         }
-        printf("%s", msg);
+        printf("%s\n", msg);
         write(pipefds[1], msg, strlen(msg));
         pthread_mutex_unlock(&mutex_w);
         sem_post(&empty_d);
