@@ -200,11 +200,11 @@ uint8_t* DecodeFrame(uint8_t* inBuf) {
  */
 MessageFrameConverter mf_converter;
 uint8_t* EncodeFrame(MessageFrame* frameBuf) {
-    /* struct MessageFrame frame = { */
-    /*     .SYN = (frameBuf->SYN), */
-    /*     .LENGTH = (frameBuf->LENGTH), */
-    /*     .DATA = (frameBuf->DATA), */
-    /* }; */
-    mf_converter.frame = *frameBuf;
+    struct MessageFrame frame = {
+        .SYN = (frameBuf->SYN),
+        .LENGTH = (frameBuf->LENGTH),
+        .DATA = (frameBuf->DATA),
+    };
+    mf_converter.frame = frame;
     return mf_converter.bytes;
 }
