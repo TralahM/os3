@@ -19,6 +19,10 @@ int main(int argc, char* argv[]) {
     if (sock < 0)
         DieWithUserMessage("SetupTCPClientSocket() failed",
                            "unable to connect");
+    FILE* channel = fdopen(sock, "r+");
+    if (channel == NULL) {
+        DieWithSystemMessage("fdopen failed");
+    }
     FILE* fp;
     pid_t clientEncoder;
     if ((clientEncoder = fork()) < 0) {
@@ -29,14 +33,14 @@ int main(int argc, char* argv[]) {
         uint8_t* returnBuffer = (uint8_t*)calloc(4, sizeof(uint8_t));
         char* output_file = "result.txt";
         FILE* of = fopen(output_file, "a");
-        while ((respSize = recv(sock, &returnBuffer, 8, 0)) > 0) {
+        while ((respSize = GetNextMsg(channel, returnBuffer, 8)) > 0) {
             char* reply = (char*)DecodeFrame(returnBuffer);
             fputs(reply, of);
             printf("\033[34m--->: %s\033[0m\n", reply);
-            /* sem_post(&empty); */
         }
         fclose(of);
         waitpid(clientEncoder, NULL, 0);
+        fclose(channel);
         close(sock);
         exit(0);
     } else {  // Encoder Process
@@ -59,12 +63,14 @@ int main(int argc, char* argv[]) {
             sprintf(sbuf, "%s", e_f);
             printf("Send3: %d  len: %d  : %s\n", sbuf, strlen(sbuf), tbuf);
             /* printf("Send: %s  len: %d\n", e_f, strlen(e_f)); */
-            n = send(sock, &nbuf, 8, 0);
+            /* n = send(sock, &nbuf, 8, 0); */
+            n = PutMsg(sbuf, 8, channel);
             if (n < 1) {
                 DieWithSystemMessage("SendMsg Failed\n");
             }
         }
         fclose(fp);
+        fclose(channel);
         exit(0);
     }
 }

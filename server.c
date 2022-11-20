@@ -204,6 +204,10 @@ int main(int argc, char* argv[]) {
 
     for (;;) {
         int clntSock = AcceptTCPConnection(servSock);
+        FILE* channel = fdopen(clntSock, "r+");
+        if (channel == NULL) {
+            DieWithSystemMessage("fdopen failed");
+        }
         int QS = 0;
         pid_t serverDecoder;
         threadQa = createQueue();
@@ -222,9 +226,9 @@ int main(int argc, char* argv[]) {
             // acquire cli_sock
             ssize_t numBytesRcvd;
             // Send received string and receive again until end of stream
-            while ((numBytesRcvd = recv(clntSock, &inBuf, 8, 0)) > 0) {
-                printf("Recv: %s   %d\n", ntohl(inBuf), inBuf);
-                char* msg = (char*)DecodeFrame(ntohl(inBuf));
+            while ((numBytesRcvd = GetNextMsg(channel, inBuf, 8)) > 0) {
+                printf("Recv: %s \n", inBuf);
+                char* msg = (char*)DecodeFrame((inBuf));
                 printf("Received message: %s  (%d bytes)\n", msg,
                        (int)numBytesRcvd);
                 /* enQueue(threadQa, (char*)DecodeFrame(inBuf)); */
@@ -309,12 +313,14 @@ int main(int argc, char* argv[]) {
                 strcpy(m_info->str, outBuf);
                 Frame(m_info, m_frame);
                 /* mSize = Encode(cliMsg, outBuf, BUFFER_SIZE); */
-                if (send(clntSock, EncodeFrame(m_frame), 8, 0)) {
+                uint8_t* e_f = EncodeFrame(m_frame);
+                if ((PutMsg(e_f, 8, channel)) < 0) {
                     fputs("Error framing/outputting message\n", stderr);
                     break;
                 } else {
                     printf("Processed %s.\n", "");
                 }
+
                 sem_post(&empty_w);
             }
             exit(0);
