@@ -227,7 +227,6 @@ int main(int argc, char* argv[]) {
             ssize_t numBytesRcvd;
             // Send received string and receive again until end of stream
             while ((numBytesRcvd = GetNextMsg(channel, inBuf, 8)) > 0) {
-                printf("Recv: %s \n", inBuf);
                 char* msg = (char*)DecodeFrame((inBuf));
                 printf("Received message: %s  (%d bytes)\n", msg,
                        (int)numBytesRcvd);

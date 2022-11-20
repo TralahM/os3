@@ -56,12 +56,12 @@ int main(int argc, char* argv[]) {
             Frame(m_info, m_frame);
             uint8_t* e_f = (uint8_t*)(m_frame);
             char* sbuf = calloc(8, sizeof(char));
-            char* nbuf = calloc(8, sizeof(char));
-            char* tbuf = calloc(8, sizeof(char));
-            nbuf = htonl(sbuf);
-            tbuf = ntohl(nbuf);
+            /* char* nbuf = calloc(8, sizeof(char)); */
+            /* char* tbuf = calloc(8, sizeof(char)); */
+            /* nbuf = htonl(sbuf); */
+            /* tbuf = ntohl(nbuf); */
             sprintf(sbuf, "%s", e_f);
-            printf("Send3: %d  len: %d  : %s\n", sbuf, strlen(sbuf), tbuf);
+            printf("Send3: %d  len: %d  \n", sbuf, strlen(sbuf));
             /* printf("Send: %s  len: %d\n", e_f, strlen(e_f)); */
             /* n = send(sock, &nbuf, 8, 0); */
             n = PutMsg(sbuf, 8, channel);
