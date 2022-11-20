@@ -18,7 +18,6 @@
 
 #include "buffer.h"
 
-typedef struct MessageFrame MessageFrame;
 typedef struct MessageInfo MessageInfo;
 
 typedef struct __attribute__((__packed__)) MessageFrame {

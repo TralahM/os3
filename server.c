@@ -23,131 +23,154 @@ sem_t cli_sock, cli_sock_free;
 
 void* thread_handler(void* arg) {
     pthread_t id = pthread_self();
-    /* printf("Pthread %lu\n", id); */
+    printf("Pthread %lu\n", id);
     if (pthread_equal(id, thread_charA)) {
         char* msg;
-        for (int i = 0; i < MaxIt; i++) {
-            msg = deQueue(threadQa);
-            sem_wait(&empty);
-            pthread_mutex_lock(&mutex_e);
-            if (msg == NULL) {
-                sem_post(&full);
-            }
-            char* modified_msg = replace(msg, "a", "A");
-            printf("%s --> %s", msg, modified_msg);
-            enQueue(threadQe, modified_msg);
-            pthread_mutex_unlock(&mutex_e);
+        msg = deQueue(threadQa);
+        sem_wait(&empty);
+        pthread_mutex_lock(&mutex_e);
+        if (msg == NULL) {
             sem_post(&full);
+            return NULL;
         }
+        char* modified_msg = replace(msg, "a", "A");
+        printf("%s --> %s", msg, modified_msg);
+        enQueue(threadQe, modified_msg);
+        pthread_mutex_unlock(&mutex_e);
+        sem_post(&full);
     }
     if (pthread_equal(id, thread_charE)) {
         char* msg;
-        for (int i = 0; i < MaxIt; i++) {
-            sem_wait(&full);
-            sem_wait(&empty_e);
-            pthread_mutex_lock(&mutex_e);
-            pthread_mutex_lock(&mutex_i);
-            msg = deQueue(threadQe);
-            if (msg == NULL) {
-                sem_post(&full_e);
-            }
-            char* modified_msg = replace(msg, "e", "E");
-            printf("%s --> %s", msg, modified_msg);
-            enQueue(threadQi, modified_msg);
+        sem_wait(&full);
+        sem_wait(&empty_e);
+        pthread_mutex_lock(&mutex_e);
+        pthread_mutex_lock(&mutex_i);
+        msg = deQueue(threadQe);
+        if (msg == NULL) {
             pthread_mutex_unlock(&mutex_e);
             pthread_mutex_unlock(&mutex_i);
             sem_post(&empty);
             sem_post(&full_e);
+            return NULL;
         }
+        char* modified_msg = replace(msg, "e", "E");
+        printf("%s --> %s", msg, modified_msg);
+        enQueue(threadQi, modified_msg);
+        pthread_mutex_unlock(&mutex_e);
+        pthread_mutex_unlock(&mutex_i);
+        sem_post(&empty);
+        sem_post(&full_e);
     }
     if (pthread_equal(id, thread_charI)) {
         char* msg;
-        for (int i = 0; i < MaxIt; i++) {
-            sem_wait(&full_e);
-            sem_wait(&empty_i);
-            pthread_mutex_lock(&mutex_i);
-            pthread_mutex_lock(&mutex_o);
-            msg = deQueue(threadQi);
-            if (msg == NULL) {
-                sem_post(&full_i);
-            }
-            char* modified_msg = replace(msg, "i", "I");
-            printf("%s --> %s", msg, modified_msg);
-            enQueue(threadQo, modified_msg);
+        sem_wait(&full_e);
+        sem_wait(&empty_i);
+        pthread_mutex_lock(&mutex_i);
+        pthread_mutex_lock(&mutex_o);
+        msg = deQueue(threadQi);
+        if (msg == NULL) {
             pthread_mutex_unlock(&mutex_o);
             pthread_mutex_unlock(&mutex_i);
             sem_post(&empty_e);
             sem_post(&full_i);
+            return NULL;
         }
+        char* modified_msg = replace(msg, "i", "I");
+        printf("%s --> %s", msg, modified_msg);
+        enQueue(threadQo, modified_msg);
+        pthread_mutex_unlock(&mutex_o);
+        pthread_mutex_unlock(&mutex_i);
+        sem_post(&empty_e);
+        sem_post(&full_i);
     }
     if (pthread_equal(id, thread_charO)) {
         char* msg;
-        for (int i = 0; i < MaxIt; i++) {
-            sem_wait(&full_i);
-            sem_wait(&empty_o);
-            pthread_mutex_lock(&mutex_u);
-            pthread_mutex_lock(&mutex_o);
-            msg = deQueue(threadQo);
-            char* modified_msg = replace(msg, "o", "O");
-            printf("%s --> %s", msg, modified_msg);
-            enQueue(threadQu, modified_msg);
+        sem_wait(&full_i);
+        sem_wait(&empty_o);
+        pthread_mutex_lock(&mutex_u);
+        pthread_mutex_lock(&mutex_o);
+        msg = deQueue(threadQo);
+        if (msg == NULL) {
             pthread_mutex_unlock(&mutex_o);
             pthread_mutex_unlock(&mutex_u);
             sem_post(&empty_i);
             sem_post(&full_o);
+            return NULL;
         }
+        char* modified_msg = replace(msg, "o", "O");
+        printf("%s --> %s", msg, modified_msg);
+        enQueue(threadQu, modified_msg);
+        pthread_mutex_unlock(&mutex_o);
+        pthread_mutex_unlock(&mutex_u);
+        sem_post(&empty_i);
+        sem_post(&full_o);
     }
     if (pthread_equal(id, thread_charU)) {
         char* msg;
-        for (int i = 0; i < MaxIt; i++) {
-            sem_wait(&full_o);
-            sem_wait(&empty_u);
-            pthread_mutex_lock(&mutex_u);
-            pthread_mutex_lock(&mutex_d);
-            msg = deQueue(threadQu);
-            char* modified_msg = replace(msg, "u", "U");
-            printf("%s --> %s", msg, modified_msg);
-            enQueue(threadQd, modified_msg);
+        sem_wait(&full_o);
+        sem_wait(&empty_u);
+        pthread_mutex_lock(&mutex_u);
+        pthread_mutex_lock(&mutex_d);
+        msg = deQueue(threadQu);
+        if (msg == NULL) {
             pthread_mutex_unlock(&mutex_u);
             pthread_mutex_unlock(&mutex_d);
             sem_post(&empty_o);
             sem_post(&full_u);
+            return NULL;
         }
+        char* modified_msg = replace(msg, "u", "U");
+        printf("%s --> %s", msg, modified_msg);
+        enQueue(threadQd, modified_msg);
+        pthread_mutex_unlock(&mutex_u);
+        pthread_mutex_unlock(&mutex_d);
+        sem_post(&empty_o);
+        sem_post(&full_u);
     }
     if (pthread_equal(id, thread_digit)) {
         char* msg;
-        for (int i = 0; i < MaxIt; i++) {
-            sem_wait(&full_u);
-            sem_wait(&empty_d);
-            pthread_mutex_lock(&mutex_w);
-            pthread_mutex_lock(&mutex_d);
-            msg = deQueue(threadQd);
-            for (int i = 0; i <= strlen(msg); i++) {
-                if (isdigit(msg[i])) {
-                    sum += msg[i] - '0';
-                }
-            }
-            enQueue(threadQw, msg);
+        sem_wait(&full_u);
+        sem_wait(&empty_d);
+        pthread_mutex_lock(&mutex_w);
+        pthread_mutex_lock(&mutex_d);
+        msg = deQueue(threadQd);
+        if (msg == NULL) {
             pthread_mutex_unlock(&mutex_d);
             pthread_mutex_unlock(&mutex_w);
             sem_post(&empty_u);
             sem_post(&full_d);
+            printf("Sum of all digits in request: %d\n", sum);
+            return NULL;
         }
+        for (int i = 0; i <= strlen(msg); i++) {
+            if (isdigit(msg[i])) {
+                sum += msg[i] - '0';
+            }
+        }
+        enQueue(threadQw, msg);
+        pthread_mutex_unlock(&mutex_d);
+        pthread_mutex_unlock(&mutex_w);
+        sem_post(&empty_u);
+        sem_post(&full_d);
         printf("Sum of all digits in request: %d\n", sum);
     }
     if (pthread_equal(id, thread_writer)) {
         char* msg;
-        for (int i = 0; i < MaxIt; i++) {
-            sem_wait(&full_d);
-            sem_wait(&empty_w);
-            pthread_mutex_lock(&mutex_w);
-            msg = deQueue(threadQw);
-            printf("%s", msg);
-            write(pipefds[1], msg, strlen(msg));
+        sem_wait(&full_d);
+        sem_wait(&empty_w);
+        pthread_mutex_lock(&mutex_w);
+        msg = deQueue(threadQw);
+        if (msg == NULL) {
             pthread_mutex_unlock(&mutex_w);
             sem_post(&empty_d);
             sem_post(&full_w);
+            return NULL;
         }
+        printf("%s", msg);
+        write(pipefds[1], msg, strlen(msg));
+        pthread_mutex_unlock(&mutex_w);
+        sem_post(&empty_d);
+        sem_post(&full_w);
     }
     return NULL;
 }
@@ -254,7 +277,6 @@ int main(int argc, char* argv[]) {
             pthread_mutex_destroy(&mutex_u);
             pthread_mutex_destroy(&mutex_d);
             pthread_mutex_destroy(&mutex_w);
-            close(clntSock);
 
             sem_destroy(&full);
             sem_destroy(&empty);
@@ -272,7 +294,8 @@ int main(int argc, char* argv[]) {
             sem_destroy(&empty_w);
             sem_destroy(&cli_sock);
             sem_destroy(&cli_sock_free);
-            /* waitpid(serverDecoder, NULL, 0); */
+            waitpid(serverDecoder, NULL, 0);
+            close(clntSock);
         } else {  // Decoder Process
             char outBuf[BUFFER_SIZE];
             uint32_t* p;
