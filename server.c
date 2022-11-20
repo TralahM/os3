@@ -222,9 +222,9 @@ int main(int argc, char* argv[]) {
             // acquire cli_sock
             ssize_t numBytesRcvd;
             // Send received string and receive again until end of stream
-            while ((numBytesRcvd = recv(clntSock, &inBuf, 4, 0)) > 0) {
-                /* uint32_t p = __bswap_32(inBuf); */
-                char* msg = (char*)DecodeFrame(inBuf);
+            while ((numBytesRcvd = recv(clntSock, &inBuf, 8, 0)) > 0) {
+                printf("Recv: %s   %d\n", ntohl(inBuf), inBuf);
+                char* msg = (char*)DecodeFrame(ntohl(inBuf));
                 printf("Received message: %s  (%d bytes)\n", msg,
                        (int)numBytesRcvd);
                 /* enQueue(threadQa, (char*)DecodeFrame(inBuf)); */
@@ -305,11 +305,11 @@ int main(int argc, char* argv[]) {
             /* sem_wait(&full_w); */
             while ((numRead = read(pipefds[0], outBuf, 4)) > 0) {
                 p = (uint32_t*)outBuf;
-                printf("outBuf: %s   %d\n", outBuf, htonl(*p));
+                printf("outBuf: %s   %d\n", outBuf, ntohl(*p));
                 strcpy(m_info->str, outBuf);
                 Frame(m_info, m_frame);
                 /* mSize = Encode(cliMsg, outBuf, BUFFER_SIZE); */
-                if (send(clntSock, EncodeFrame(m_frame), 4, 0)) {
+                if (send(clntSock, EncodeFrame(m_frame), 8, 0)) {
                     fputs("Error framing/outputting message\n", stderr);
                     break;
                 } else {

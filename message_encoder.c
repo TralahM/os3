@@ -142,6 +142,7 @@ bool DeFrame(MessageFrame* frame, MessageInfo* msg) {
         /*     str[i] = bin2char(remove_parity_bit(*f)); */
         /* } */
         str[i] = bin2char(*f);
+        /* printf("Deframe: (%d)  %s\n", i, str); */
         f++;
     }
     /* str[frame->LENGTH] = '\0'; */
@@ -180,18 +181,19 @@ uint8_t get_byte_from(uint32_t value, int start_bit) {
  *
  */
 uint8_t* DecodeFrame(uint8_t* inBuf) {
-    printf("%s  ---> %d\n", inBuf, inBuf);
+    /* printf("%s  ---> %d\n", inBuf, strlen(inBuf)); */
     MessageFrame* mf = (MessageFrame*)inBuf;
-    MessageFrame* nf = message_frame_create();
-    printf("Frame LENGTH: %d SYN: %d DATA: %d\n", mf->LENGTH, mf->SYN,
-           mf->DATA);
-    nf->SYN = ntohs(mf->SYN);
-    nf->LENGTH = ntohs(mf->LENGTH);
-    nf->DATA = ntohs(mf->DATA);
-    printf("Frame LENGTH: %d SYN: %d DATA: %d\n", nf->LENGTH, nf->SYN,
-           nf->DATA);
+    /* MessageFrame* nf = message_frame_create(); */
+    /* printf("Frame LENGTH: %d SYN: %d DATA: %d = %s\n", mf->LENGTH, mf->SYN,
+     */
+    /*        mf->DATA, inBuf); */
+    /* nf->SYN = ntohs(mf->SYN); */
+    /* nf->LENGTH = ntohs(mf->LENGTH); */
+    /* nf->DATA = ntohs(mf->DATA); */
+    /* printf("Frame LENGTH: %d SYN: %d DATA: %d\n", nf->LENGTH, nf->SYN, */
+    /*        nf->DATA); */
     MessageInfo* mi = message_info_create();
-    DeFrame(nf, mi);
+    DeFrame(mf, mi);
     return (uint8_t*)mi->str;
 }
 
