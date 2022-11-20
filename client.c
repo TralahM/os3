@@ -61,7 +61,7 @@ int main(int argc, char* argv[]) {
             /* nbuf = htonl(sbuf); */
             /* tbuf = ntohl(nbuf); */
             sprintf(sbuf, "%s", e_f);
-            printf("Send3: %d  len: %d  \n", sbuf, strlen(sbuf));
+            printf("Send3: %s  len: %d  \n", sbuf, strlen(sbuf));
             /* printf("Send: %s  len: %d\n", e_f, strlen(e_f)); */
             /* n = send(sock, &nbuf, 8, 0); */
             n = PutMsg(sbuf, 8, channel);
@@ -69,6 +69,7 @@ int main(int argc, char* argv[]) {
                 DieWithSystemMessage("SendMsg Failed\n");
             }
         }
+        PutMsg(NULL, 0, channel);
         fclose(fp);
         fclose(channel);
         exit(0);
