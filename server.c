@@ -23,8 +23,8 @@ sem_t cli_sock, cli_sock_free;
 
 void* thread_handler(void* arg) {
     pthread_t id = pthread_self();
-    printf("Pthread %lu\n", id);
     if (pthread_equal(id, thread_charA)) {
+        printf("Pthread %lu  A\n", id);
         char* msg;
         msg = deQueue(threadQa);
         sem_wait(&empty);
@@ -40,6 +40,7 @@ void* thread_handler(void* arg) {
         sem_post(&full);
     }
     if (pthread_equal(id, thread_charE)) {
+        printf("Pthread %lu  E\n", id);
         char* msg;
         sem_wait(&full);
         sem_wait(&empty_e);
@@ -62,6 +63,7 @@ void* thread_handler(void* arg) {
         sem_post(&full_e);
     }
     if (pthread_equal(id, thread_charI)) {
+        printf("Pthread %lu  I\n", id);
         char* msg;
         sem_wait(&full_e);
         sem_wait(&empty_i);
@@ -84,6 +86,7 @@ void* thread_handler(void* arg) {
         sem_post(&full_i);
     }
     if (pthread_equal(id, thread_charO)) {
+        printf("Pthread %lu  O\n", id);
         char* msg;
         sem_wait(&full_i);
         sem_wait(&empty_o);
@@ -106,6 +109,7 @@ void* thread_handler(void* arg) {
         sem_post(&full_o);
     }
     if (pthread_equal(id, thread_charU)) {
+        printf("Pthread %lu  U\n", id);
         char* msg;
         sem_wait(&full_o);
         sem_wait(&empty_u);
@@ -128,6 +132,7 @@ void* thread_handler(void* arg) {
         sem_post(&full_u);
     }
     if (pthread_equal(id, thread_digit)) {
+        printf("Pthread %lu  D\n", id);
         char* msg;
         sem_wait(&full_u);
         sem_wait(&empty_d);
@@ -155,6 +160,7 @@ void* thread_handler(void* arg) {
         printf("Sum of all digits in request: %d\n", sum);
     }
     if (pthread_equal(id, thread_writer)) {
+        printf("Pthread %lu  W\n", id);
         char* msg;
         sem_wait(&full_d);
         sem_wait(&empty_w);
