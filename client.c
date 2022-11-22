@@ -39,7 +39,8 @@ int main(int argc, char* argv[]) {
         while ((respSize = GetNextMsg(channel, returnBuffer, 8)) > 0) {
             char* reply = (char*)DecodeFrame(returnBuffer);
             fputs(reply, of);
-            printf("\033[34m--->: %s\033[0m  len:%d\n", reply, strlen(reply));
+            /* printf("\033[34m--->: %s\033[0m  len:%d\n", reply,
+             * strlen(reply)); */
             if (strlen(reply) < 3) {
                 break;
             }
