@@ -29,19 +29,28 @@ int main(int argc, char* argv[]) {
         perror("Client Encoder create failed");
     } else if (clientEncoder > 0) {  // ClientDecoder Process
         /* sem_wait(&full); */
+        waitpid(clientEncoder, NULL, 0);
         size_t respSize;
         uint8_t* returnBuffer = (uint8_t*)calloc(4, sizeof(uint8_t));
         char* output_file = "result.txt";
-        FILE* of = fopen(output_file, "a");
+        FILE* of = fopen(output_file, "w");
+        fclose(of);
+        of = fopen(output_file, "a");
         while ((respSize = GetNextMsg(channel, returnBuffer, 8)) > 0) {
             char* reply = (char*)DecodeFrame(returnBuffer);
             fputs(reply, of);
-            printf("\033[34m--->: %s\033[0m\n", reply);
+            printf("\033[34m--->: %s\033[0m  len:%d\n", reply, strlen(reply));
+            if (strlen(reply) < 3) {
+                break;
+            }
         }
         fclose(of);
-        waitpid(clientEncoder, NULL, 0);
+        /* printf("fclose(of);\n"); */
         fclose(channel);
+        /* printf("fclose(channel);\n"); */
         close(sock);
+        printf("close(sock);\n");
+        printf("Results written to result.txt\n");
         exit(0);
     } else {  // Encoder Process
         /* printf("clientEncoder process."); */
@@ -61,7 +70,7 @@ int main(int argc, char* argv[]) {
             /* nbuf = htonl(sbuf); */
             /* tbuf = ntohl(nbuf); */
             sprintf(sbuf, "%s", e_f);
-            printf("Send3: %s  len: %d  \n", sbuf, strlen(sbuf));
+            /* printf("Send3: %s  len: %d  \n", sbuf, strlen(sbuf)); */
             /* printf("Send: %s  len: %d\n", e_f, strlen(e_f)); */
             /* n = send(sock, &nbuf, 8, 0); */
             n = PutMsg(sbuf, 8, channel);
@@ -71,7 +80,7 @@ int main(int argc, char* argv[]) {
         }
         PutMsg(NULL, 0, channel);
         fclose(fp);
-        fclose(channel);
+        printf("fclose(fp);\n");
         exit(0);
     }
 }
