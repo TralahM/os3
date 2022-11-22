@@ -81,7 +81,7 @@ int main(int argc, char* argv[]) {
         }
         PutMsg(NULL, 0, channel);
         fclose(fp);
-        printf("fclose(fp);\n");
+        /* printf("fclose(fp);\n"); */
         exit(0);
     }
 }

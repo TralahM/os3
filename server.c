@@ -51,7 +51,7 @@ void* thread_handler(void* arg) {
         sem_wait(&empty);
         /* printf("sem_wait(empty);\n"); */
         while ((msg = deQueue(threadQa)) != NULL) {
-            printf("Pthread %lu  A\n", id);
+            /* printf("Pthread %lu  A\n", id); */
             char* modified_msg = replace(msg, "a", "A");
             /* printf("%s --> %s\n", msg, modified_msg); */
             enQueue(threadQe, modified_msg);
@@ -69,7 +69,7 @@ void* thread_handler(void* arg) {
         pthread_cond_wait(&comp_e, &mutex_e);
         sem_wait(&full);
         while ((msg = deQueue(threadQe)) != NULL) {
-            printf("Pthread %lu  E\n", id);
+            /* printf("Pthread %lu  E\n", id); */
             char* modified_msg = replace(msg, "e", "E");
             /* printf("%s --> %s\n", msg, modified_msg); */
             enQueue(threadQi, modified_msg);
@@ -89,7 +89,7 @@ void* thread_handler(void* arg) {
         sem_wait(&full_e);
 
         while ((msg = deQueue(threadQi)) != NULL) {
-            printf("Pthread %lu  I\n", id);
+            /* printf("Pthread %lu  I\n", id); */
             char* modified_msg = replace(msg, "i", "I");
             /* printf("%s --> %s\n", msg, modified_msg); */
             enQueue(threadQo, modified_msg);
@@ -107,7 +107,7 @@ void* thread_handler(void* arg) {
         pthread_cond_wait(&comp_o, &mutex_o);
         sem_wait(&full_i);
         while ((msg = deQueue(threadQo)) != NULL) {
-            printf("Pthread %lu  O\n", id);
+            /* printf("Pthread %lu  O\n", id); */
             char* modified_msg = replace(msg, "o", "O");
             /* printf("%s --> %s\n", msg, modified_msg); */
             enQueue(threadQu, modified_msg);
@@ -119,14 +119,14 @@ void* thread_handler(void* arg) {
     }
 
     if (pthread_equal(id, thread_charU)) {
-        printf("Pthread %lu  U\n", id);
+        /* printf("Pthread %lu  U\n", id); */
         char* msg;
         pthread_mutex_lock(&mutex_u);
         pthread_cond_wait(&comp_u, &mutex_u);
         sem_wait(&full_o);
 
         while ((msg = deQueue(threadQu)) != NULL) {
-            printf("Pthread %lu  U\n", id);
+            /* printf("Pthread %lu  U\n", id); */
             char* modified_msg = replace(msg, "u", "U");
             /* printf("%s --> %s\n", msg, modified_msg); */
             enQueue(threadQd, modified_msg);
@@ -145,7 +145,7 @@ void* thread_handler(void* arg) {
         sem_wait(&full_u);
 
         while ((msg = deQueue(threadQd)) != NULL) {
-            printf("Pthread %lu  D\n", id);
+            /* printf("Pthread %lu  D\n", id); */
             /* printf("%s --> %s\n", msg, msg); */
             int digits = 0;
             int position = -1;
@@ -209,7 +209,7 @@ void* thread_handler(void* arg) {
         sem_wait(&full_d);
 
         while ((msg = deQueue(threadQw)) != NULL) {
-            printf("Pthread %lu  W\n", id);
+            /* printf("Pthread %lu  W\n", id); */
             printf("%s", msg);
             write(pipefds[1], msg, 4);
         }
@@ -377,8 +377,9 @@ int main(int argc, char* argv[]) {
 
             while ((numRead = read(pipefds[0], outBuf, 4)) != 0) {
                 p = (uint32_t*)outBuf;
-                printf("outBuf: %s   %d  nread:%d  len:%d\n", outBuf, ntohl(*p),
-                       numRead, strlen(outBuf));
+                /* printf("outBuf: %s   %d  nread:%d  len:%d\n", outBuf,
+                 * ntohl(*p), */
+                /*        numRead, strlen(outBuf)); */
                 strcpy(m_info->str, outBuf);
                 Frame(m_info, m_frame);
                 /* mSize = Encode(cliMsg, outBuf, BUFFER_SIZE); */
