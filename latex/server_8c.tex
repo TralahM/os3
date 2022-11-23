@@ -1,0 +1,197 @@
+\hypertarget{server_8c}{}\doxysection{server.\+c File Reference}
+\label{server_8c}\index{server.c@{server.c}}
+
+
+The TCP Server Implementation.  
+
+
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}queue.\+h\char`\"{}}\newline
+Include dependency graph for server.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{server_8c_aa948dc519a5ac1c5d646d430a9fd3c72}\label{server_8c_aa948dc519a5ac1c5d646d430a9fd3c72}} 
+\#define {\bfseries Max\+It}~10
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{server_8c_a28e07e221f5b4a28c9bb3d3fba4352fd}{thread\+\_\+handler}} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Thread Handler to handle threads. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{server_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{server_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+int {\bfseries main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{server_8c_aa8daabba83e70d7366cfe883a5de73c8}\label{server_8c_aa8daabba83e70d7366cfe883a5de73c8}} 
+struct \mbox{\hyperlink{structQueue}{Queue}} $\ast$ {\bfseries thread\+Qa}
+\item 
+\mbox{\Hypertarget{server_8c_ac1e2788085b6f09ac475e57cde0a28e2}\label{server_8c_ac1e2788085b6f09ac475e57cde0a28e2}} 
+struct \mbox{\hyperlink{structQueue}{Queue}} $\ast$ {\bfseries thread\+Qe}
+\item 
+\mbox{\Hypertarget{server_8c_ae478d0a730890f8c73b76d09fb4c4486}\label{server_8c_ae478d0a730890f8c73b76d09fb4c4486}} 
+struct \mbox{\hyperlink{structQueue}{Queue}} $\ast$ {\bfseries thread\+Qi}
+\item 
+\mbox{\Hypertarget{server_8c_a6327cbabdd100331884afceb232f21be}\label{server_8c_a6327cbabdd100331884afceb232f21be}} 
+struct \mbox{\hyperlink{structQueue}{Queue}} $\ast$ {\bfseries thread\+Qo}
+\item 
+\mbox{\Hypertarget{server_8c_ab8a8568b950d7ebe8397da950d69c21c}\label{server_8c_ab8a8568b950d7ebe8397da950d69c21c}} 
+struct \mbox{\hyperlink{structQueue}{Queue}} $\ast$ {\bfseries thread\+Qu}
+\item 
+\mbox{\Hypertarget{server_8c_a71eb64fcc11fb5290b184d64c067658f}\label{server_8c_a71eb64fcc11fb5290b184d64c067658f}} 
+struct \mbox{\hyperlink{structQueue}{Queue}} $\ast$ {\bfseries thread\+Qd}
+\item 
+\mbox{\Hypertarget{server_8c_a468aa38f28c79d565c7a70166e9c1ce6}\label{server_8c_a468aa38f28c79d565c7a70166e9c1ce6}} 
+struct \mbox{\hyperlink{structQueue}{Queue}} $\ast$ {\bfseries thread\+Qw}
+\item 
+\mbox{\Hypertarget{server_8c_a930b83edda39ee8cfa78dd4574a50bc3}\label{server_8c_a930b83edda39ee8cfa78dd4574a50bc3}} 
+int {\bfseries sum} = 0
+\item 
+\mbox{\Hypertarget{server_8c_a347a7b965cc29df58e9db163bb0fb814}\label{server_8c_a347a7b965cc29df58e9db163bb0fb814}} 
+int {\bfseries pipefds} \mbox{[}2\mbox{]}
+\item 
+\mbox{\Hypertarget{server_8c_a0f886a13de86cb9b7cebfeebe0c4643c}\label{server_8c_a0f886a13de86cb9b7cebfeebe0c4643c}} 
+pthread\+\_\+cond\+\_\+t {\bfseries comp\+\_\+a} = PTHREAD\+\_\+\+COND\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_a62e8f6c79572166a5e5555402ab7cc2e}\label{server_8c_a62e8f6c79572166a5e5555402ab7cc2e}} 
+pthread\+\_\+cond\+\_\+t {\bfseries comp\+\_\+e} = PTHREAD\+\_\+\+COND\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_a3ed41ae1aab4d4d265024fa183b9a394}\label{server_8c_a3ed41ae1aab4d4d265024fa183b9a394}} 
+pthread\+\_\+cond\+\_\+t {\bfseries comp\+\_\+i} = PTHREAD\+\_\+\+COND\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_ae575c0ad17fe23a94c514ee932313364}\label{server_8c_ae575c0ad17fe23a94c514ee932313364}} 
+pthread\+\_\+cond\+\_\+t {\bfseries comp\+\_\+o} = PTHREAD\+\_\+\+COND\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_a2578de5cc38b79118c1024ec7390bf97}\label{server_8c_a2578de5cc38b79118c1024ec7390bf97}} 
+pthread\+\_\+cond\+\_\+t {\bfseries comp\+\_\+u} = PTHREAD\+\_\+\+COND\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_a4d0ddf43c8d6699722b19b9e38e9ada9}\label{server_8c_a4d0ddf43c8d6699722b19b9e38e9ada9}} 
+pthread\+\_\+cond\+\_\+t {\bfseries comp\+\_\+d} = PTHREAD\+\_\+\+COND\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_a082bc818a185528b930f41b37e28dab2}\label{server_8c_a082bc818a185528b930f41b37e28dab2}} 
+pthread\+\_\+cond\+\_\+t {\bfseries comp\+\_\+w} = PTHREAD\+\_\+\+COND\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_aad8f34a7d8d1fd94cb784cb90cfffdff}\label{server_8c_aad8f34a7d8d1fd94cb784cb90cfffdff}} 
+pthread\+\_\+t {\bfseries thread\+\_\+charA}
+\item 
+\mbox{\Hypertarget{server_8c_ab3594e992d79c880bccc235c8536e7bc}\label{server_8c_ab3594e992d79c880bccc235c8536e7bc}} 
+pthread\+\_\+t {\bfseries thread\+\_\+charE}
+\item 
+\mbox{\Hypertarget{server_8c_a817c1e6b732b0b420b72bc3b2740f500}\label{server_8c_a817c1e6b732b0b420b72bc3b2740f500}} 
+pthread\+\_\+t {\bfseries thread\+\_\+charI}
+\item 
+\mbox{\Hypertarget{server_8c_ade058a6a33bf3b8888d950edb993d356}\label{server_8c_ade058a6a33bf3b8888d950edb993d356}} 
+pthread\+\_\+t {\bfseries thread\+\_\+charO}
+\item 
+\mbox{\Hypertarget{server_8c_a61fb919f413dd38bcf2d1ba6b5afe133}\label{server_8c_a61fb919f413dd38bcf2d1ba6b5afe133}} 
+pthread\+\_\+t {\bfseries thread\+\_\+charU}
+\item 
+\mbox{\Hypertarget{server_8c_a8ed8e67c05c0b707f2574c60fd1572fd}\label{server_8c_a8ed8e67c05c0b707f2574c60fd1572fd}} 
+pthread\+\_\+t {\bfseries thread\+\_\+digit}
+\item 
+\mbox{\Hypertarget{server_8c_a8c8c9f44ce1d462d7e26145b3a7789c4}\label{server_8c_a8c8c9f44ce1d462d7e26145b3a7789c4}} 
+pthread\+\_\+t {\bfseries thread\+\_\+writer}
+\item 
+\mbox{\Hypertarget{server_8c_a803e087325128a0ed489f7cd98eeb348}\label{server_8c_a803e087325128a0ed489f7cd98eeb348}} 
+pthread\+\_\+mutex\+\_\+t {\bfseries mutex\+\_\+a} = PTHREAD\+\_\+\+MUTEX\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_a999e1f4bae9e73f8305648f5b736aae9}\label{server_8c_a999e1f4bae9e73f8305648f5b736aae9}} 
+pthread\+\_\+mutex\+\_\+t {\bfseries mutex\+\_\+e} = PTHREAD\+\_\+\+MUTEX\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_aa79e54b8ac623c2f1e67845179848612}\label{server_8c_aa79e54b8ac623c2f1e67845179848612}} 
+pthread\+\_\+mutex\+\_\+t {\bfseries mutex\+\_\+i} = PTHREAD\+\_\+\+MUTEX\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_a43833e9756e379ba6fb24bc495f80ba2}\label{server_8c_a43833e9756e379ba6fb24bc495f80ba2}} 
+pthread\+\_\+mutex\+\_\+t {\bfseries mutex\+\_\+o} = PTHREAD\+\_\+\+MUTEX\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_a6fbc2e332b9328652aa03fbec9fbe1f6}\label{server_8c_a6fbc2e332b9328652aa03fbec9fbe1f6}} 
+pthread\+\_\+mutex\+\_\+t {\bfseries mutex\+\_\+u} = PTHREAD\+\_\+\+MUTEX\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_a0b85d7983c517aadc693f1ede4a4eac7}\label{server_8c_a0b85d7983c517aadc693f1ede4a4eac7}} 
+pthread\+\_\+mutex\+\_\+t {\bfseries mutex\+\_\+d} = PTHREAD\+\_\+\+MUTEX\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_aae9460aadf2a431a23577d0764efaacf}\label{server_8c_aae9460aadf2a431a23577d0764efaacf}} 
+pthread\+\_\+mutex\+\_\+t {\bfseries mutex\+\_\+w} = PTHREAD\+\_\+\+MUTEX\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{server_8c_a0096ed68692b83dac0d5cf7cf780ad49}\label{server_8c_a0096ed68692b83dac0d5cf7cf780ad49}} 
+sem\+\_\+t {\bfseries empty}
+\item 
+\mbox{\Hypertarget{server_8c_a7f2298b96078c4c4b50124786b47e1fd}\label{server_8c_a7f2298b96078c4c4b50124786b47e1fd}} 
+sem\+\_\+t {\bfseries empty\+\_\+e}
+\item 
+\mbox{\Hypertarget{server_8c_a8484901a7fc86b3bd00333b57c38603d}\label{server_8c_a8484901a7fc86b3bd00333b57c38603d}} 
+sem\+\_\+t {\bfseries empty\+\_\+i}
+\item 
+\mbox{\Hypertarget{server_8c_a596c506bd6c206ed06817464d139edf1}\label{server_8c_a596c506bd6c206ed06817464d139edf1}} 
+sem\+\_\+t {\bfseries empty\+\_\+o}
+\item 
+\mbox{\Hypertarget{server_8c_a2fe08a0941e31df4a7fb2f5b561f96ab}\label{server_8c_a2fe08a0941e31df4a7fb2f5b561f96ab}} 
+sem\+\_\+t {\bfseries empty\+\_\+u}
+\item 
+\mbox{\Hypertarget{server_8c_ae40cbba07e1eb3dfade854161b52fb33}\label{server_8c_ae40cbba07e1eb3dfade854161b52fb33}} 
+sem\+\_\+t {\bfseries empty\+\_\+d}
+\item 
+\mbox{\Hypertarget{server_8c_a5c7a17b7ad28e4703159cded6ba2fc03}\label{server_8c_a5c7a17b7ad28e4703159cded6ba2fc03}} 
+sem\+\_\+t {\bfseries empty\+\_\+w}
+\item 
+\mbox{\Hypertarget{server_8c_a25875c11ed23317723b25d45f3f4a293}\label{server_8c_a25875c11ed23317723b25d45f3f4a293}} 
+sem\+\_\+t {\bfseries full}
+\item 
+\mbox{\Hypertarget{server_8c_ae07f80d8df5f7c300d4a024a70848dea}\label{server_8c_ae07f80d8df5f7c300d4a024a70848dea}} 
+sem\+\_\+t {\bfseries full\+\_\+e}
+\item 
+\mbox{\Hypertarget{server_8c_a1f5eb46c798bdf9e78a48766696830d0}\label{server_8c_a1f5eb46c798bdf9e78a48766696830d0}} 
+sem\+\_\+t {\bfseries full\+\_\+i}
+\item 
+\mbox{\Hypertarget{server_8c_ae36c4a39d4d21d33f787148fe0a2317d}\label{server_8c_ae36c4a39d4d21d33f787148fe0a2317d}} 
+sem\+\_\+t {\bfseries full\+\_\+o}
+\item 
+\mbox{\Hypertarget{server_8c_a426a33de65892acfc5c6311c3c59644e}\label{server_8c_a426a33de65892acfc5c6311c3c59644e}} 
+sem\+\_\+t {\bfseries full\+\_\+u}
+\item 
+\mbox{\Hypertarget{server_8c_a9c7ad5e0ebee2ea154e4c16a4af84bfd}\label{server_8c_a9c7ad5e0ebee2ea154e4c16a4af84bfd}} 
+sem\+\_\+t {\bfseries full\+\_\+d}
+\item 
+\mbox{\Hypertarget{server_8c_a74f971c2d63f23dd19a5981ca73898f6}\label{server_8c_a74f971c2d63f23dd19a5981ca73898f6}} 
+sem\+\_\+t {\bfseries full\+\_\+w}
+\item 
+\mbox{\Hypertarget{server_8c_ae700e9f507033dbe5a7c14e7314cdadc}\label{server_8c_ae700e9f507033dbe5a7c14e7314cdadc}} 
+sem\+\_\+t {\bfseries cli\+\_\+sock}
+\item 
+\mbox{\Hypertarget{server_8c_a0328e3903249010d79e011b8a191249b}\label{server_8c_a0328e3903249010d79e011b8a191249b}} 
+sem\+\_\+t {\bfseries cli\+\_\+sock\+\_\+free}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The TCP Server Implementation. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{server_8c_a28e07e221f5b4a28c9bb3d3fba4352fd}\label{server_8c_a28e07e221f5b4a28c9bb3d3fba4352fd}} 
+\index{server.c@{server.c}!thread\_handler@{thread\_handler}}
+\index{thread\_handler@{thread\_handler}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{thread\_handler()}{thread\_handler()}}
+{\footnotesize\ttfamily void $\ast$ thread\+\_\+handler (\begin{DoxyParamCaption}\item[{void $\ast$}]{arg }\end{DoxyParamCaption})}
+
+
+
+Thread Handler to handle threads. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & the arg parameter. \\
+\hline
+\end{DoxyParams}

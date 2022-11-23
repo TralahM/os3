@@ -1,0 +1,550 @@
+\hypertarget{common_8h}{}\doxysection{common.\+h File Reference}
+\label{common_8h}\index{common.h@{common.h}}
+
+
+Common Header Files.  
+
+
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$byteswap.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$strings.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}buffer.\+h\char`\"{}}\newline
+Include dependency graph for common.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{common_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{common_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{unionMessageFrameConverter}{Message\+Frame\+Converter}}
+\item 
+struct \mbox{\hyperlink{structMessageInfo}{Message\+Info}}
+\begin{DoxyCompactList}\small\item\em information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{common_8h_a82f86f5acc1ac8faa7547c23e0cd97db}\label{common_8h_a82f86f5acc1ac8faa7547c23e0cd97db}} 
+typedef struct \mbox{\hyperlink{structMessageInfo}{Message\+Info}} {\bfseries Message\+Info}
+\item 
+\mbox{\Hypertarget{common_8h_a019c2166fd5f07efa1ad0850a95e84ee}\label{common_8h_a019c2166fd5f07efa1ad0850a95e84ee}} 
+typedef union \mbox{\hyperlink{unionMessageFrameConverter}{Message\+Frame\+Converter}} {\bfseries Message\+Frame\+Converter}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{common_8h_afb964b91ae7304584fd407dc316fa08e}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((\+\_\+\+\_\+packed\+\_\+\+\_\+)) \mbox{\hyperlink{structMessageFrame}{Message\+Frame}}
+\item 
+void \mbox{\hyperlink{common_8h_a993396ccf109ec7e16cc7066b03803c0}{Die\+With\+User\+Message}} (const char $\ast$msg, const char $\ast$detail)
+\begin{DoxyCompactList}\small\item\em Exit with user message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{common_8h_a2bf9e1bdae264e0c2d475dc555e805f7}{Die\+With\+System\+Message}} (const char $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Exit with syatem message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{common_8h_af1106bd14b4adbd9239ac33b224f3fb1}{Handle\+TCPClient}} (int clnt\+Socket)
+\begin{DoxyCompactList}\small\item\em Handle a TCP Client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{common_8h_ac46a7bdd12ba8ea1a07068fd2ed676d7}{Print\+Socket\+Address}} (const struct sockaddr $\ast$address, FILE $\ast$stream)
+\begin{DoxyCompactList}\small\item\em Print the socket addeess to this stream. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{common_8h_ab04052790aad51f95b05194c3bc8a9fb}{Setup\+TCPClient\+Socket}} (const char $\ast$host, const char $\ast$service)
+\begin{DoxyCompactList}\small\item\em Setup a TCP Client on this host and port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{common_8h_aa27b5647b005737cecc97dbf2de7e849}{Setup\+TCPServer\+Socket}} (const char $\ast$service)
+\begin{DoxyCompactList}\small\item\em Setup a TCP Server on this porr. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{common_8h_a73b7289def27d2edc46c83f073d54583}{Accept\+TCPConnection}} (int serv\+Sock)
+\begin{DoxyCompactList}\small\item\em Accept a TCP connection on this Socket. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{common_8h_a8d2b20873330485098162740ecbff009}{Get\+Next\+Msg}} (FILE $\ast$in, uint8\+\_\+t $\ast$buf, size\+\_\+t buf\+Size)
+\begin{DoxyCompactList}\small\item\em Read a message of this size into this buffer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{common_8h_aac63701a62a411d59e97309d0c5e9c4f}{Put\+Msg}} (uint8\+\_\+t buf\mbox{[}$\,$\mbox{]}, size\+\_\+t msg\+Size, FILE $\ast$out)
+\begin{DoxyCompactList}\small\item\em Write the message in the buffer to this file. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{common_8h_aae8c34d637e5d1f5ac6c6b7fe66b1197}{replace}} (char const $\ast$const original, char const $\ast$const pattern, char const $\ast$const replacement)
+\begin{DoxyCompactList}\small\item\em Replace the pattern in the original string with the replacement. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{common_8h_a6186240f814f174e1536c928686ee234}{get\+\_\+byte\+\_\+from}} (uint32\+\_\+t value, int start\+\_\+bit)
+\begin{DoxyCompactList}\small\item\em Get a byte from this value. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{common_8h_a32d81546bce3a51995e4fdd272181c32}{count\+\_\+set\+\_\+bits}} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Count the set bits in n. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{common_8h_a806fbe54b356a140cb58d0a796f02b53}{clear\+\_\+bit}} (uint8\+\_\+t n, int i)
+\begin{DoxyCompactList}\small\item\em Clear the bit at position i on n. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{common_8h_a498e502423db47aae9a21c1bab28bb24}{set\+\_\+bit}} (uint8\+\_\+t n, int i)
+\begin{DoxyCompactList}\small\item\em Set the bit at position i on n. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{common_8h_a0d9dea4018405dedde0dc3a7fb7caa5f}{char2bin}} (char c)
+\begin{DoxyCompactList}\small\item\em Convert this char to binary. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{common_8h_a34abb14456e41e262f3b8d9cb85d9bd5}{bin2char}} (uint8\+\_\+t b)
+\begin{DoxyCompactList}\small\item\em Convert this byte to char. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{common_8h_a7f6a03aba249c6e6eef61ba2047d11dd}{check\+\_\+parity\+\_\+bit}} (uint8\+\_\+t bits)
+\begin{DoxyCompactList}\small\item\em Check if the the parity bit of this byte is set. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{common_8h_a6e80b84136a09feb92a31f4563e130f9}{add\+\_\+parity\+\_\+bit}} (uint8\+\_\+t bits)
+\begin{DoxyCompactList}\small\item\em Add the parity bit of this byte. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{common_8h_ad0dddccab2a3a9897e90386f79dde4f5}{remove\+\_\+parity\+\_\+bit}} (uint8\+\_\+t bits)
+\begin{DoxyCompactList}\small\item\em Remove the parity bit of this byte. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{common_8h_ae2c92f95ed835c207a5a5ebbd8281e55}{int2bin}} (int a, char $\ast$buffer, int buf\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Return a binary string representation of this int. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{common_8h_ab9f8bc704586a8aeb99c6c1c92db6457}{get\+\_\+kth\+\_\+bit}} (uint8\+\_\+t bits, int k)
+\begin{DoxyCompactList}\small\item\em Get the kth bit from this byte. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{common_8h_afd2df100fc341dd31d70a0c85926c91b}\label{common_8h_afd2df100fc341dd31d70a0c85926c91b}} 
+\mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$ {\bfseries message\+\_\+frame\+\_\+create} ()
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{structMessageFrame}{Message\+Frame}} object by allocating memory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{common_8h_a9f9d1e43881e05c617bf00c2f15334d9}\label{common_8h_a9f9d1e43881e05c617bf00c2f15334d9}} 
+\mbox{\hyperlink{structMessageInfo}{Message\+Info}} $\ast$ {\bfseries message\+\_\+info\+\_\+create} ()
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{structMessageInfo}{Message\+Info}} object by allocating memory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{common_8h_a2e8aa60cfade2878e1505f5235d8df45}{De\+Frame}} (\mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$frame, \mbox{\hyperlink{structMessageInfo}{Message\+Info}} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Decode this frame into a \mbox{\hyperlink{structMessageInfo}{Message\+Info}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{common_8h_a90c674e99706ff8cb9957337f257db5e}{Frame}} (\mbox{\hyperlink{structMessageInfo}{Message\+Info}} $\ast$msg, \mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$frame)
+\begin{DoxyCompactList}\small\item\em Create a Frame of this messagw. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{common_8h_a81f0293f588c4a279d929a64706b9ef0}{Decode\+Frame}} (uint8\+\_\+t $\ast$in\+Buf)
+\begin{DoxyCompactList}\small\item\em Decode this frame and return its message. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{common_8h_a92100f9ae72d43f5e098812c65ce037a}{Encode\+Frame}} (\mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$frame\+Buf)
+\begin{DoxyCompactList}\small\item\em Encode Frame into a byte array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{common_8h_a1470d36ff58616ec54d6998fd8bf3fe0}\label{common_8h_a1470d36ff58616ec54d6998fd8bf3fe0}} 
+{\bfseries Message\+Frame}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Common Header Files. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{common_8h_afb964b91ae7304584fd407dc316fa08e}\label{common_8h_afb964b91ae7304584fd407dc316fa08e}} 
+\index{common.h@{common.h}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily struct \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(\+\_\+\+\_\+packed\+\_\+\+\_\+)}]{ }\end{DoxyParamCaption})}
+
+\texorpdfstring{$<$}{<} SYN Field
+
+\texorpdfstring{$<$}{<} LENGTH Field
+
+\texorpdfstring{$<$}{<} DATA Field\mbox{\Hypertarget{common_8h_a73b7289def27d2edc46c83f073d54583}\label{common_8h_a73b7289def27d2edc46c83f073d54583}} 
+\index{common.h@{common.h}!AcceptTCPConnection@{AcceptTCPConnection}}
+\index{AcceptTCPConnection@{AcceptTCPConnection}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{AcceptTCPConnection()}{AcceptTCPConnection()}}
+{\footnotesize\ttfamily int Accept\+TCPConnection (\begin{DoxyParamCaption}\item[{int}]{serv\+Sock }\end{DoxyParamCaption})}
+
+
+
+Accept a TCP connection on this Socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em serv\+Sock} & the socket of the server. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a6e80b84136a09feb92a31f4563e130f9}\label{common_8h_a6e80b84136a09feb92a31f4563e130f9}} 
+\index{common.h@{common.h}!add\_parity\_bit@{add\_parity\_bit}}
+\index{add\_parity\_bit@{add\_parity\_bit}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{add\_parity\_bit()}{add\_parity\_bit()}}
+{\footnotesize\ttfamily uint8\+\_\+t add\+\_\+parity\+\_\+bit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bits }\end{DoxyParamCaption})}
+
+
+
+Add the parity bit of this byte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bits} & the byte to add the parity bit. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a34abb14456e41e262f3b8d9cb85d9bd5}\label{common_8h_a34abb14456e41e262f3b8d9cb85d9bd5}} 
+\index{common.h@{common.h}!bin2char@{bin2char}}
+\index{bin2char@{bin2char}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{bin2char()}{bin2char()}}
+{\footnotesize\ttfamily char bin2char (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+
+
+Convert this byte to char. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & the binary to convert to char. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a0d9dea4018405dedde0dc3a7fb7caa5f}\label{common_8h_a0d9dea4018405dedde0dc3a7fb7caa5f}} 
+\index{common.h@{common.h}!char2bin@{char2bin}}
+\index{char2bin@{char2bin}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{char2bin()}{char2bin()}}
+{\footnotesize\ttfamily uint8\+\_\+t char2bin (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Convert this char to binary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the char to convert to bin. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a7f6a03aba249c6e6eef61ba2047d11dd}\label{common_8h_a7f6a03aba249c6e6eef61ba2047d11dd}} 
+\index{common.h@{common.h}!check\_parity\_bit@{check\_parity\_bit}}
+\index{check\_parity\_bit@{check\_parity\_bit}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{check\_parity\_bit()}{check\_parity\_bit()}}
+{\footnotesize\ttfamily bool check\+\_\+parity\+\_\+bit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bits }\end{DoxyParamCaption})}
+
+
+
+Check if the the parity bit of this byte is set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bits} & the byte to add the parity bit. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a806fbe54b356a140cb58d0a796f02b53}\label{common_8h_a806fbe54b356a140cb58d0a796f02b53}} 
+\index{common.h@{common.h}!clear\_bit@{clear\_bit}}
+\index{clear\_bit@{clear\_bit}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{clear\_bit()}{clear\_bit()}}
+{\footnotesize\ttfamily uint8\+\_\+t clear\+\_\+bit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{n,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Clear the bit at position i on n. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the byte to clear the bit. \\
+\hline
+{\em i} & the position at which to clear the bit. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a32d81546bce3a51995e4fdd272181c32}\label{common_8h_a32d81546bce3a51995e4fdd272181c32}} 
+\index{common.h@{common.h}!count\_set\_bits@{count\_set\_bits}}
+\index{count\_set\_bits@{count\_set\_bits}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{count\_set\_bits()}{count\_set\_bits()}}
+{\footnotesize\ttfamily unsigned int count\+\_\+set\+\_\+bits (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Count the set bits in n. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the byte to count set bits. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a81f0293f588c4a279d929a64706b9ef0}\label{common_8h_a81f0293f588c4a279d929a64706b9ef0}} 
+\index{common.h@{common.h}!DecodeFrame@{DecodeFrame}}
+\index{DecodeFrame@{DecodeFrame}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{DecodeFrame()}{DecodeFrame()}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ Decode\+Frame (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{in\+Buf }\end{DoxyParamCaption})}
+
+
+
+Decode this frame and return its message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Buf} & the byte array input buffer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a2e8aa60cfade2878e1505f5235d8df45}\label{common_8h_a2e8aa60cfade2878e1505f5235d8df45}} 
+\index{common.h@{common.h}!DeFrame@{DeFrame}}
+\index{DeFrame@{DeFrame}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{DeFrame()}{DeFrame()}}
+{\footnotesize\ttfamily bool De\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$}]{frame,  }\item[{\mbox{\hyperlink{structMessageInfo}{Message\+Info}} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Decode this frame into a \mbox{\hyperlink{structMessageInfo}{Message\+Info}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & the frame to Decode. \\
+\hline
+{\em msg} & where to store the message info object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a2bf9e1bdae264e0c2d475dc555e805f7}\label{common_8h_a2bf9e1bdae264e0c2d475dc555e805f7}} 
+\index{common.h@{common.h}!DieWithSystemMessage@{DieWithSystemMessage}}
+\index{DieWithSystemMessage@{DieWithSystemMessage}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{DieWithSystemMessage()}{DieWithSystemMessage()}}
+{\footnotesize\ttfamily void Die\+With\+System\+Message (\begin{DoxyParamCaption}\item[{const char $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Exit with syatem message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the message. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a993396ccf109ec7e16cc7066b03803c0}\label{common_8h_a993396ccf109ec7e16cc7066b03803c0}} 
+\index{common.h@{common.h}!DieWithUserMessage@{DieWithUserMessage}}
+\index{DieWithUserMessage@{DieWithUserMessage}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{DieWithUserMessage()}{DieWithUserMessage()}}
+{\footnotesize\ttfamily void Die\+With\+User\+Message (\begin{DoxyParamCaption}\item[{const char $\ast$}]{msg,  }\item[{const char $\ast$}]{detail }\end{DoxyParamCaption})}
+
+
+
+Exit with user message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the message. \\
+\hline
+{\em detail} & the details. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a92100f9ae72d43f5e098812c65ce037a}\label{common_8h_a92100f9ae72d43f5e098812c65ce037a}} 
+\index{common.h@{common.h}!EncodeFrame@{EncodeFrame}}
+\index{EncodeFrame@{EncodeFrame}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{EncodeFrame()}{EncodeFrame()}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ Encode\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$}]{frame\+Buf }\end{DoxyParamCaption})}
+
+
+
+Encode Frame into a byte array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame\+Buf} & the frame object to encode. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a90c674e99706ff8cb9957337f257db5e}\label{common_8h_a90c674e99706ff8cb9957337f257db5e}} 
+\index{common.h@{common.h}!Frame@{Frame}}
+\index{Frame@{Frame}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{Frame()}{Frame()}}
+{\footnotesize\ttfamily bool Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMessageInfo}{Message\+Info}} $\ast$}]{msg,  }\item[{\mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$}]{frame }\end{DoxyParamCaption})}
+
+
+
+Create a Frame of this messagw. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the message info to frame. \\
+\hline
+{\em frame} & where to store the created frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a6186240f814f174e1536c928686ee234}\label{common_8h_a6186240f814f174e1536c928686ee234}} 
+\index{common.h@{common.h}!get\_byte\_from@{get\_byte\_from}}
+\index{get\_byte\_from@{get\_byte\_from}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{get\_byte\_from()}{get\_byte\_from()}}
+{\footnotesize\ttfamily uint8\+\_\+t get\+\_\+byte\+\_\+from (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{value,  }\item[{int}]{start\+\_\+bit }\end{DoxyParamCaption})}
+
+
+
+Get a byte from this value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value. \\
+\hline
+{\em start\+\_\+bit} & the position to start slicing. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_ab9f8bc704586a8aeb99c6c1c92db6457}\label{common_8h_ab9f8bc704586a8aeb99c6c1c92db6457}} 
+\index{common.h@{common.h}!get\_kth\_bit@{get\_kth\_bit}}
+\index{get\_kth\_bit@{get\_kth\_bit}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{get\_kth\_bit()}{get\_kth\_bit()}}
+{\footnotesize\ttfamily uint8\+\_\+t get\+\_\+kth\+\_\+bit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bits,  }\item[{int}]{k }\end{DoxyParamCaption})}
+
+
+
+Get the kth bit from this byte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bits} & the byte to get from. \\
+\hline
+{\em k} & the kth position to get. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a8d2b20873330485098162740ecbff009}\label{common_8h_a8d2b20873330485098162740ecbff009}} 
+\index{common.h@{common.h}!GetNextMsg@{GetNextMsg}}
+\index{GetNextMsg@{GetNextMsg}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{GetNextMsg()}{GetNextMsg()}}
+{\footnotesize\ttfamily int Get\+Next\+Msg (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{in,  }\item[{uint8\+\_\+t $\ast$}]{buf,  }\item[{size\+\_\+t}]{buf\+Size }\end{DoxyParamCaption})}
+
+
+
+Read a message of this size into this buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & the input file. \\
+\hline
+{\em msg\+Size} & the size of the message. \\
+\hline
+{\em buf} & the message buffer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_af1106bd14b4adbd9239ac33b224f3fb1}\label{common_8h_af1106bd14b4adbd9239ac33b224f3fb1}} 
+\index{common.h@{common.h}!HandleTCPClient@{HandleTCPClient}}
+\index{HandleTCPClient@{HandleTCPClient}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{HandleTCPClient()}{HandleTCPClient()}}
+{\footnotesize\ttfamily void Handle\+TCPClient (\begin{DoxyParamCaption}\item[{int}]{clnt\+Socket }\end{DoxyParamCaption})}
+
+
+
+Handle a TCP Client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clnt\+Socket} & the client socket. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_ae2c92f95ed835c207a5a5ebbd8281e55}\label{common_8h_ae2c92f95ed835c207a5a5ebbd8281e55}} 
+\index{common.h@{common.h}!int2bin@{int2bin}}
+\index{int2bin@{int2bin}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{int2bin()}{int2bin()}}
+{\footnotesize\ttfamily char $\ast$ int2bin (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buf\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Return a binary string representation of this int. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the integer to convert. \\
+\hline
+{\em buffer} & where to store the string representation. \\
+\hline
+{\em buf\+\_\+size} & the size the buffer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_ac46a7bdd12ba8ea1a07068fd2ed676d7}\label{common_8h_ac46a7bdd12ba8ea1a07068fd2ed676d7}} 
+\index{common.h@{common.h}!PrintSocketAddress@{PrintSocketAddress}}
+\index{PrintSocketAddress@{PrintSocketAddress}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{PrintSocketAddress()}{PrintSocketAddress()}}
+{\footnotesize\ttfamily void Print\+Socket\+Address (\begin{DoxyParamCaption}\item[{const struct sockaddr $\ast$}]{address,  }\item[{FILE $\ast$}]{stream }\end{DoxyParamCaption})}
+
+
+
+Print the socket addeess to this stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sockaddr} & the socket address. \\
+\hline
+{\em stream} & the output stream. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_aac63701a62a411d59e97309d0c5e9c4f}\label{common_8h_aac63701a62a411d59e97309d0c5e9c4f}} 
+\index{common.h@{common.h}!PutMsg@{PutMsg}}
+\index{PutMsg@{PutMsg}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{PutMsg()}{PutMsg()}}
+{\footnotesize\ttfamily int Put\+Msg (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{buf\mbox{[}$\,$\mbox{]},  }\item[{size\+\_\+t}]{msg\+Size,  }\item[{FILE $\ast$}]{out }\end{DoxyParamCaption})}
+
+
+
+Write the message in the buffer to this file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & the message buffer. \\
+\hline
+{\em msg\+Size} & the message size. \\
+\hline
+{\em out} & the output file. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_ad0dddccab2a3a9897e90386f79dde4f5}\label{common_8h_ad0dddccab2a3a9897e90386f79dde4f5}} 
+\index{common.h@{common.h}!remove\_parity\_bit@{remove\_parity\_bit}}
+\index{remove\_parity\_bit@{remove\_parity\_bit}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{remove\_parity\_bit()}{remove\_parity\_bit()}}
+{\footnotesize\ttfamily uint8\+\_\+t remove\+\_\+parity\+\_\+bit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bits }\end{DoxyParamCaption})}
+
+
+
+Remove the parity bit of this byte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bits} & the byte to remove the parity bit. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_aae8c34d637e5d1f5ac6c6b7fe66b1197}\label{common_8h_aae8c34d637e5d1f5ac6c6b7fe66b1197}} 
+\index{common.h@{common.h}!replace@{replace}}
+\index{replace@{replace}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}}
+{\footnotesize\ttfamily char $\ast$ replace (\begin{DoxyParamCaption}\item[{char const $\ast$const}]{original,  }\item[{char const $\ast$const}]{pattern,  }\item[{char const $\ast$const}]{replacement }\end{DoxyParamCaption})}
+
+
+
+Replace the pattern in the original string with the replacement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em original} & the original string. \\
+\hline
+{\em pattern} & the pattern string. \\
+\hline
+{\em replacement} & the replacement string. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_a498e502423db47aae9a21c1bab28bb24}\label{common_8h_a498e502423db47aae9a21c1bab28bb24}} 
+\index{common.h@{common.h}!set\_bit@{set\_bit}}
+\index{set\_bit@{set\_bit}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{set\_bit()}{set\_bit()}}
+{\footnotesize\ttfamily uint8\+\_\+t set\+\_\+bit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{n,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Set the bit at position i on n. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the byte to set the bit. \\
+\hline
+{\em i} & the position at which to set the bit. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_ab04052790aad51f95b05194c3bc8a9fb}\label{common_8h_ab04052790aad51f95b05194c3bc8a9fb}} 
+\index{common.h@{common.h}!SetupTCPClientSocket@{SetupTCPClientSocket}}
+\index{SetupTCPClientSocket@{SetupTCPClientSocket}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{SetupTCPClientSocket()}{SetupTCPClientSocket()}}
+{\footnotesize\ttfamily int Setup\+TCPClient\+Socket (\begin{DoxyParamCaption}\item[{const char $\ast$}]{host,  }\item[{const char $\ast$}]{service }\end{DoxyParamCaption})}
+
+
+
+Setup a TCP Client on this host and port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em host} & the host/ip to the server. \\
+\hline
+{\em service} & the port to the server. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{common_8h_aa27b5647b005737cecc97dbf2de7e849}\label{common_8h_aa27b5647b005737cecc97dbf2de7e849}} 
+\index{common.h@{common.h}!SetupTCPServerSocket@{SetupTCPServerSocket}}
+\index{SetupTCPServerSocket@{SetupTCPServerSocket}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{SetupTCPServerSocket()}{SetupTCPServerSocket()}}
+{\footnotesize\ttfamily int Setup\+TCPServer\+Socket (\begin{DoxyParamCaption}\item[{const char $\ast$}]{service }\end{DoxyParamCaption})}
+
+
+
+Setup a TCP Server on this porr. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & the port to listen on. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,25 @@
+\hypertarget{queue_8h_source}{}\doxysection{queue.\+h}
+\mbox{\hyperlink{queue_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <pthread.h>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{11 \textcolor{keyword}{struct }\mbox{\hyperlink{structQNode}{QNode}} \{}
+\DoxyCodeLine{12     \textcolor{keywordtype}{char}* data;}
+\DoxyCodeLine{13     \textcolor{keyword}{struct }\mbox{\hyperlink{structQNode}{QNode}}* next;}
+\DoxyCodeLine{14 \};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{19 \textcolor{keyword}{struct }\mbox{\hyperlink{structQueue}{Queue}} \{}
+\DoxyCodeLine{20     \textcolor{keyword}{struct }\mbox{\hyperlink{structQNode}{QNode}} *head, *tail;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} size;}
+\DoxyCodeLine{22 \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{28 \textcolor{keyword}{struct }\mbox{\hyperlink{structQNode}{QNode}}* \mbox{\hyperlink{queue_8h_ab3f32d5317044888671cac7d23b3b58a}{newQNode}}(\textcolor{keywordtype}{char}*);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{33 \textcolor{keyword}{struct }\mbox{\hyperlink{structQueue}{Queue}}* \mbox{\hyperlink{queue_8h_a0a2cdcfbbfa150a17f06b30ca3c5ab94}{createQueue}}();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{40 \textcolor{keywordtype}{void} \mbox{\hyperlink{queue_8h_a153421e54286f25f74cf1516a59c7100}{enQueue}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structQueue}{Queue}}* q, \textcolor{keywordtype}{char}* str);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{46 \textcolor{keywordtype}{char}* \mbox{\hyperlink{queue_8h_a71cdf1d0746ad261b6f18d1237c183b9}{deQueue}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structQueue}{Queue}}* q);}
+
+\end{DoxyCode}
