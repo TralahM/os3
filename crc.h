@@ -2,6 +2,7 @@
  * =====================================================================================
  *
  *       Filename:  crc.h
+ * \file crc.h
  *
  *    Description: Cyclic Rendundacy Check 32 bits
  *
