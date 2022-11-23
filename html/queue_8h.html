@@ -69,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="structQueue.html">Queue</a> Implementation.  
+<p><a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a> Implementation.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;pthread.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -95,31 +95,116 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structQNode.html">QNode</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node.  <a href="structQNode.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structQueue.html">Queue</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structQNode"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8h.html#structQNode">QNode</a></td></tr>
+<tr class="memdesc:structQNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">the <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a> Node.  <a href="queue_8h.html#structQNode">More...</a><br /></td></tr>
+<tr class="separator:structQNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structQueue"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8h.html#structQueue">Queue</a></td></tr>
+<tr class="memdesc:structQueue"><td class="mdescLeft">&#160;</td><td class="mdescRight">the <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a>.  <a href="queue_8h.html#structQueue">More...</a><br /></td></tr>
+<tr class="separator:structQueue"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab3f32d5317044888671cac7d23b3b58a"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structQNode.html">QNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8h.html#ab3f32d5317044888671cac7d23b3b58a">newQNode</a> (char *)</td></tr>
-<tr class="memdesc:ab3f32d5317044888671cac7d23b3b58a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create new Qnode with this string.  <a href="queue_8h.html#ab3f32d5317044888671cac7d23b3b58a">More...</a><br /></td></tr>
-<tr class="separator:ab3f32d5317044888671cac7d23b3b58a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab7e12129b2a6112c4ab086537958e30"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="queue_8h.html#structQNode">QNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8h.html#aab7e12129b2a6112c4ab086537958e30">newQNode</a> (char *data)</td></tr>
+<tr class="memdesc:aab7e12129b2a6112c4ab086537958e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create new Qnode with this string.  <a href="queue_8h.html#aab7e12129b2a6112c4ab086537958e30">More...</a><br /></td></tr>
+<tr class="separator:aab7e12129b2a6112c4ab086537958e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a2cdcfbbfa150a17f06b30ca3c5ab94"><td class="memItemLeft" align="right" valign="top"><a id="a0a2cdcfbbfa150a17f06b30ca3c5ab94" name="a0a2cdcfbbfa150a17f06b30ca3c5ab94"></a>
-struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createQueue</b> ()</td></tr>
-<tr class="memdesc:a0a2cdcfbbfa150a17f06b30ca3c5ab94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create new <a class="el" href="structQueue.html">Queue</a>. <br /></td></tr>
+struct <a class="el" href="queue_8h.html#structQueue">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createQueue</b> ()</td></tr>
+<tr class="memdesc:a0a2cdcfbbfa150a17f06b30ca3c5ab94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create new <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a>. <br /></td></tr>
 <tr class="separator:a0a2cdcfbbfa150a17f06b30ca3c5ab94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a153421e54286f25f74cf1516a59c7100"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8h.html#a153421e54286f25f74cf1516a59c7100">enQueue</a> (struct <a class="el" href="structQueue.html">Queue</a> *q, char *str)</td></tr>
+<tr class="memitem:a153421e54286f25f74cf1516a59c7100"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8h.html#a153421e54286f25f74cf1516a59c7100">enQueue</a> (struct <a class="el" href="queue_8h.html#structQueue">Queue</a> *q, char *str)</td></tr>
 <tr class="memdesc:a153421e54286f25f74cf1516a59c7100"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create new Qnode with this string.  <a href="queue_8h.html#a153421e54286f25f74cf1516a59c7100">More...</a><br /></td></tr>
 <tr class="separator:a153421e54286f25f74cf1516a59c7100"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71cdf1d0746ad261b6f18d1237c183b9"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8h.html#a71cdf1d0746ad261b6f18d1237c183b9">deQueue</a> (struct <a class="el" href="structQueue.html">Queue</a> *q)</td></tr>
-<tr class="memdesc:a71cdf1d0746ad261b6f18d1237c183b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">DeQueue from this <a class="el" href="structQueue.html">Queue</a>.  <a href="queue_8h.html#a71cdf1d0746ad261b6f18d1237c183b9">More...</a><br /></td></tr>
+<tr class="memitem:a71cdf1d0746ad261b6f18d1237c183b9"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8h.html#a71cdf1d0746ad261b6f18d1237c183b9">deQueue</a> (struct <a class="el" href="queue_8h.html#structQueue">Queue</a> *q)</td></tr>
+<tr class="memdesc:a71cdf1d0746ad261b6f18d1237c183b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">DeQueue from this <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a>.  <a href="queue_8h.html#a71cdf1d0746ad261b6f18d1237c183b9">More...</a><br /></td></tr>
 <tr class="separator:a71cdf1d0746ad261b6f18d1237c183b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="structQueue.html">Queue</a> Implementation. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+<div class="textblock"><p ><a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a> Implementation. </p>
+</div><hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="structQNode" id="structQNode"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structQNode">&#9670;&nbsp;</a></span>QNode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct QNode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p >the <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a> Node. </p>
+</div><div class="dynheader">
+Collaboration diagram for QNode:</div>
+<div class="dyncontent">
+<div class="center"><img src="structQNode__coll__graph.png" border="0" usemap="#aQNode_coll__map" alt="Collaboration graph"/></div>
+<map name="aQNode_coll__map" id="aQNode_coll__map">
+<area shape="rect" title="the Queue Node." alt="" coords="5,5,72,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="ab8c3d60b8613d604fb05ae1e0f55f898" name="ab8c3d60b8613d604fb05ae1e0f55f898"></a>char *</td>
+<td class="fieldname">
+data</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a3b7155192216d5b7983b0751dfa487c0" name="a3b7155192216d5b7983b0751dfa487c0"></a>struct <a class="el" href="queue_8h.html#structQNode">QNode</a> *</td>
+<td class="fieldname">
+next</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structQueue" id="structQueue"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structQueue">&#9670;&nbsp;</a></span>Queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct Queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p >the <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a>. </p>
+</div><div class="dynheader">
+Collaboration diagram for Queue:</div>
+<div class="dyncontent">
+<div class="center"><img src="structQueue__coll__graph.png" border="0" usemap="#aQueue_coll__map" alt="Collaboration graph"/></div>
+<map name="aQueue_coll__map" id="aQueue_coll__map">
+<area shape="rect" title="the Queue." alt="" coords="7,109,71,136"/>
+<area shape="rect" href="queue_8h.html#structQNode" title="the Queue Node." alt="" coords="5,5,72,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a0fa8c0358802b33fa7a04d7ff8d5a24b" name="a0fa8c0358802b33fa7a04d7ff8d5a24b"></a>struct <a class="el" href="queue_8h.html#structQNode">QNode</a> *</td>
+<td class="fieldname">
+head</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ac7d9701d244e3ba255ef8556e0562dc6" name="ac7d9701d244e3ba255ef8556e0562dc6"></a>int</td>
+<td class="fieldname">
+size</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a5143d339828d0884bf28c7b2f8caa881" name="a5143d339828d0884bf28c7b2f8caa881"></a>struct <a class="el" href="queue_8h.html#structQNode">QNode</a> *</td>
+<td class="fieldname">
+tail</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a71cdf1d0746ad261b6f18d1237c183b9" name="a71cdf1d0746ad261b6f18d1237c183b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a71cdf1d0746ad261b6f18d1237c183b9">&#9670;&nbsp;</a></span>deQueue()</h2>
 
@@ -129,17 +214,17 @@ struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="me
         <tr>
           <td class="memname">char * deQueue </td>
           <td>(</td>
-          <td class="paramtype">struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="queue_8h.html#structQueue">Queue</a> *&#160;</td>
           <td class="paramname"><em>q</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>DeQueue from this <a class="el" href="structQueue.html">Queue</a>. </p>
+<p>DeQueue from this <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">q</td><td>the <a class="el" href="structQueue.html">Queue</a>. </td></tr>
+    <tr><td class="paramname">q</td><td>the <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -155,7 +240,7 @@ struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="me
         <tr>
           <td class="memname">void enQueue </td>
           <td>(</td>
-          <td class="paramtype">struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="queue_8h.html#structQueue">Queue</a> *&#160;</td>
           <td class="paramname"><em>q</em>, </td>
         </tr>
         <tr>
@@ -175,7 +260,7 @@ struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="me
 <p>Create new Qnode with this string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">q</td><td>the <a class="el" href="structQueue.html">Queue</a>. </td></tr>
+    <tr><td class="paramname">q</td><td>the <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a>. </td></tr>
     <tr><td class="paramname">str</td><td>the string. </td></tr>
   </table>
   </dd>
@@ -183,14 +268,14 @@ struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="me
 
 </div>
 </div>
-<a id="ab3f32d5317044888671cac7d23b3b58a" name="ab3f32d5317044888671cac7d23b3b58a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3f32d5317044888671cac7d23b3b58a">&#9670;&nbsp;</a></span>newQNode()</h2>
+<a id="aab7e12129b2a6112c4ab086537958e30" name="aab7e12129b2a6112c4ab086537958e30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab7e12129b2a6112c4ab086537958e30">&#9670;&nbsp;</a></span>newQNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="structQNode.html">QNode</a> * newQNode </td>
+          <td class="memname">struct <a class="el" href="queue_8h.html#structQNode">QNode</a> * newQNode </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>data</em></td><td>)</td>
@@ -202,7 +287,7 @@ struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="me
 <p>Create new Qnode with this string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str</td><td>the string. </td></tr>
+    <tr><td class="paramname">data</td><td>the string. </td></tr>
   </table>
   </dd>
 </dl>

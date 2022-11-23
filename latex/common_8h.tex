@@ -22,16 +22,14 @@ Common Header Files.
 {\ttfamily \#include $<$sys/wait.\+h$>$}\newline
 {\ttfamily \#include $<$unistd.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}buffer.\+h\char`\"{}}\newline
-Include dependency graph for common.\+h\+:
-\nopagebreak
+Include dependency graph for common.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{common_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -41,19 +39,10 @@ This graph shows which files directly or indirectly include this file\+:
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-union \mbox{\hyperlink{unionMessageFrameConverter}{Message\+Frame\+Converter}}
-\item 
-struct \mbox{\hyperlink{structMessageInfo}{Message\+Info}}
-\begin{DoxyCompactList}\small\item\em information. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{common_8h_a82f86f5acc1ac8faa7547c23e0cd97db}\label{common_8h_a82f86f5acc1ac8faa7547c23e0cd97db}} 
-typedef struct \mbox{\hyperlink{structMessageInfo}{Message\+Info}} {\bfseries Message\+Info}
-\item 
-\mbox{\Hypertarget{common_8h_a019c2166fd5f07efa1ad0850a95e84ee}\label{common_8h_a019c2166fd5f07efa1ad0850a95e84ee}} 
-typedef union \mbox{\hyperlink{unionMessageFrameConverter}{Message\+Frame\+Converter}} {\bfseries Message\+Frame\+Converter}
-\end{DoxyCompactItemize}
+union \mbox{\hyperlink{common_8h_unionMessageFrameConverter}{Message\+Frame\+Converter}}
+\begin{DoxyCompactList}\small\item\em the converter.  \mbox{\hyperlink{common_8h_unionMessageFrameConverter}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{common_8h_structMessageInfo}{Message\+Info}}
+\begin{DoxyCompactList}\small\item\em information.  \mbox{\hyperlink{common_8h_structMessageInfo}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -105,11 +94,11 @@ uint8\+\_\+t \mbox{\hyperlink{common_8h_ab9f8bc704586a8aeb99c6c1c92db6457}{get\+
 \mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$ {\bfseries message\+\_\+frame\+\_\+create} ()
 \begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{structMessageFrame}{Message\+Frame}} object by allocating memory. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{common_8h_a9f9d1e43881e05c617bf00c2f15334d9}\label{common_8h_a9f9d1e43881e05c617bf00c2f15334d9}} 
-\mbox{\hyperlink{structMessageInfo}{Message\+Info}} $\ast$ {\bfseries message\+\_\+info\+\_\+create} ()
-\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{structMessageInfo}{Message\+Info}} object by allocating memory. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{common_8h_a2e8aa60cfade2878e1505f5235d8df45}{De\+Frame}} (\mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$frame, \mbox{\hyperlink{structMessageInfo}{Message\+Info}} $\ast$msg)
-\begin{DoxyCompactList}\small\item\em Decode this frame into a \mbox{\hyperlink{structMessageInfo}{Message\+Info}} object. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{common_8h_a90c674e99706ff8cb9957337f257db5e}{Frame}} (\mbox{\hyperlink{structMessageInfo}{Message\+Info}} $\ast$msg, \mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$frame)
+\mbox{\hyperlink{common_8h_structMessageInfo}{Message\+Info}} $\ast$ {\bfseries message\+\_\+info\+\_\+create} ()
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{common_8h_structMessageInfo}{Message\+Info}} object by allocating memory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{common_8h_a2e8aa60cfade2878e1505f5235d8df45}{De\+Frame}} (\mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$frame, \mbox{\hyperlink{common_8h_structMessageInfo}{Message\+Info}} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Decode this frame into a \mbox{\hyperlink{common_8h_structMessageInfo}{Message\+Info}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{common_8h_a90c674e99706ff8cb9957337f257db5e}{Frame}} (\mbox{\hyperlink{common_8h_structMessageInfo}{Message\+Info}} $\ast$msg, \mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$frame)
 \begin{DoxyCompactList}\small\item\em Create a Frame of this messagw. \end{DoxyCompactList}\item 
 uint8\+\_\+t $\ast$ \mbox{\hyperlink{common_8h_a81f0293f588c4a279d929a64706b9ef0}{Decode\+Frame}} (uint8\+\_\+t $\ast$in\+Buf)
 \begin{DoxyCompactList}\small\item\em Decode this frame and return its message. \end{DoxyCompactList}\item 
@@ -118,14 +107,54 @@ uint8\+\_\+t $\ast$ \mbox{\hyperlink{common_8h_a92100f9ae72d43f5e098812c65ce037a
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{common_8h_a1470d36ff58616ec54d6998fd8bf3fe0}\label{common_8h_a1470d36ff58616ec54d6998fd8bf3fe0}} 
+\mbox{\Hypertarget{common_8h_ac629743a2d59d2294de9d5250b1b18a2}\label{common_8h_ac629743a2d59d2294de9d5250b1b18a2}} 
 {\bfseries Message\+Frame}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em the message frame type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Common Header Files. 
 
+
+
+\doxysubsection{Class Documentation}
+\index{MessageFrameConverter@{MessageFrameConverter}}\label{unionMessageFrameConverter}
+\Hypertarget{common_8h_unionMessageFrameConverter}
+\doxysubsubsection{union Message\+Frame\+Converter}
+the converter. 
+
+Collaboration diagram for Message\+Frame\+Converter\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{unionMessageFrameConverter__coll__graph}
+\end{center}
+\end{figure}
+\begin{DoxyFields}{Class Members}
+\mbox{\Hypertarget{common_8h_a4012d4a6fba0f90e63d4265a27129443}\label{common_8h_a4012d4a6fba0f90e63d4265a27129443}} 
+uint8\_t&
+bytes\mbox{[}sizeof(\mbox{\hyperlink{structMessageFrame}{MessageFrame}})\mbox{]}&
+bytes Field \\
+\hline
+
+\mbox{\Hypertarget{common_8h_a20c0fa434900fc0049f552db778d671c}\label{common_8h_a20c0fa434900fc0049f552db778d671c}} 
+\mbox{\hyperlink{structMessageFrame}{MessageFrame}}&
+frame&
+frame Field \\
+\hline
+
+\end{DoxyFields}
+\index{MessageInfo@{MessageInfo}}\label{structMessageInfo}
+\Hypertarget{common_8h_structMessageInfo}
+\doxysubsubsection{struct Message\+Info}
+information. \begin{DoxyFields}{Class Members}
+\mbox{\Hypertarget{common_8h_a830e848f5740682d87ba32aa7ed5b809}\label{common_8h_a830e848f5740682d87ba32aa7ed5b809}} 
+char $\ast$&
+str&
+str Field with actual message \\
+\hline
+
+\end{DoxyFields}
 
 
 \doxysubsection{Function Documentation}
@@ -265,11 +294,11 @@ Decode this frame and return its message.
 \index{common.h@{common.h}!DeFrame@{DeFrame}}
 \index{DeFrame@{DeFrame}!common.h@{common.h}}
 \doxysubsubsection{\texorpdfstring{DeFrame()}{DeFrame()}}
-{\footnotesize\ttfamily bool De\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$}]{frame,  }\item[{\mbox{\hyperlink{structMessageInfo}{Message\+Info}} $\ast$}]{msg }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool De\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$}]{frame,  }\item[{\mbox{\hyperlink{common_8h_structMessageInfo}{Message\+Info}} $\ast$}]{msg }\end{DoxyParamCaption})}
 
 
 
-Decode this frame into a \mbox{\hyperlink{structMessageInfo}{Message\+Info}} object. 
+Decode this frame into a \mbox{\hyperlink{common_8h_structMessageInfo}{Message\+Info}} object. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -329,7 +358,7 @@ Encode Frame into a byte array.
 \index{common.h@{common.h}!Frame@{Frame}}
 \index{Frame@{Frame}!common.h@{common.h}}
 \doxysubsubsection{\texorpdfstring{Frame()}{Frame()}}
-{\footnotesize\ttfamily bool Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMessageInfo}{Message\+Info}} $\ast$}]{msg,  }\item[{\mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$}]{frame }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{common_8h_structMessageInfo}{Message\+Info}} $\ast$}]{msg,  }\item[{\mbox{\hyperlink{structMessageFrame}{Message\+Frame}} $\ast$}]{frame }\end{DoxyParamCaption})}
 
 
 
@@ -390,7 +419,7 @@ Read a message of this size into this buffer.
 \begin{DoxyParams}{Parameters}
 {\em in} & the input file. \\
 \hline
-{\em msg\+Size} & the size of the message. \\
+{\em buf\+Size} & the size of the message. \\
 \hline
 {\em buf} & the message buffer. \\
 \hline
@@ -441,7 +470,7 @@ Print the socket addeess to this stream.
 
 
 \begin{DoxyParams}{Parameters}
-{\em sockaddr} & the socket address. \\
+{\em address} & the socket address. \\
 \hline
 {\em stream} & the output stream. \\
 \hline

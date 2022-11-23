@@ -23,13 +23,15 @@
 
 #include "buffer.h"
 /**
- * \typedef MessageInfo the MessageInfo type.
+ * \typedef struct MessageInfo MessageInfo;
  */
 typedef struct MessageInfo MessageInfo;
 
 /**
- * \typedef MessageFrame the message frame type.
- * \struct MessageFrame the message frame.
+ * \typedef struct MessageFrame MessageFrame;
+ * the message frame type.
+ * \struct MessageFrame;
+ * the message frame.
  */
 typedef struct __attribute__((__packed__)) MessageFrame {
     uint16_t SYN;   /*!< SYN Field*/
@@ -38,7 +40,8 @@ typedef struct __attribute__((__packed__)) MessageFrame {
 } MessageFrame;
 
 /**
- * \union MessageFrameConverter the converter.
+ * \union MessageFrameConverter;
+ * the converter.
  */
 typedef union MessageFrameConverter {
     MessageFrame frame;                  /*!< frame Field*/
@@ -71,7 +74,7 @@ void DieWithSystemMessage(const char* msg);
 void HandleTCPClient(int clntSocket);
 /**
  * Print the socket addeess to this stream.
- * @param sockaddr the socket address.
+ * @param address the socket address.
  * @param stream the output stream.
  */
 void PrintSocketAddress(const struct sockaddr* address, FILE* stream);
@@ -95,7 +98,7 @@ int AcceptTCPConnection(int servSock);
 /**
  * Read a message of this size into this buffer.
  * @param in the input file.
- * @param msgSize the size of the message.
+ * @param bufSize the size of the message.
  * @param buf the message buffer.
  */
 int GetNextMsg(FILE* in, uint8_t* buf, size_t bufSize);

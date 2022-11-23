@@ -110,6 +110,7 @@ Include dependency graph for server.c:</div>
 Macros</h2></td></tr>
 <tr class="memitem:aa948dc519a5ac1c5d646d430a9fd3c72"><td class="memItemLeft" align="right" valign="top"><a id="aa948dc519a5ac1c5d646d430a9fd3c72" name="aa948dc519a5ac1c5d646d430a9fd3c72"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MaxIt</b>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:aa948dc519a5ac1c5d646d430a9fd3c72"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximum iterations. <br /></td></tr>
 <tr class="separator:aa948dc519a5ac1c5d646d430a9fd3c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -117,154 +118,235 @@ Functions</h2></td></tr>
 <tr class="memitem:a28e07e221f5b4a28c9bb3d3fba4352fd"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a28e07e221f5b4a28c9bb3d3fba4352fd">thread_handler</a> (void *arg)</td></tr>
 <tr class="memdesc:a28e07e221f5b4a28c9bb3d3fba4352fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread Handler to handle threads.  <a href="server_8c.html#a28e07e221f5b4a28c9bb3d3fba4352fd">More...</a><br /></td></tr>
 <tr class="separator:a28e07e221f5b4a28c9bb3d3fba4352fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top"><a id="a0ddf1224851353fc92bfbff6f499fa97" name="a0ddf1224851353fc92bfbff6f499fa97"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, char *argv[])</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="server_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="memdesc:a0ddf1224851353fc92bfbff6f499fa97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the main aerver.  <a href="server_8c.html#a0ddf1224851353fc92bfbff6f499fa97">More...</a><br /></td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aa8daabba83e70d7366cfe883a5de73c8"><td class="memItemLeft" align="right" valign="top"><a id="aa8daabba83e70d7366cfe883a5de73c8" name="aa8daabba83e70d7366cfe883a5de73c8"></a>
-struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQa</b></td></tr>
-<tr class="separator:aa8daabba83e70d7366cfe883a5de73c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1e2788085b6f09ac475e57cde0a28e2"><td class="memItemLeft" align="right" valign="top"><a id="ac1e2788085b6f09ac475e57cde0a28e2" name="ac1e2788085b6f09ac475e57cde0a28e2"></a>
-struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQe</b></td></tr>
-<tr class="separator:ac1e2788085b6f09ac475e57cde0a28e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae478d0a730890f8c73b76d09fb4c4486"><td class="memItemLeft" align="right" valign="top"><a id="ae478d0a730890f8c73b76d09fb4c4486" name="ae478d0a730890f8c73b76d09fb4c4486"></a>
-struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQi</b></td></tr>
-<tr class="separator:ae478d0a730890f8c73b76d09fb4c4486"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6327cbabdd100331884afceb232f21be"><td class="memItemLeft" align="right" valign="top"><a id="a6327cbabdd100331884afceb232f21be" name="a6327cbabdd100331884afceb232f21be"></a>
-struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQo</b></td></tr>
-<tr class="separator:a6327cbabdd100331884afceb232f21be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8a8568b950d7ebe8397da950d69c21c"><td class="memItemLeft" align="right" valign="top"><a id="ab8a8568b950d7ebe8397da950d69c21c" name="ab8a8568b950d7ebe8397da950d69c21c"></a>
-struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQu</b></td></tr>
-<tr class="separator:ab8a8568b950d7ebe8397da950d69c21c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71eb64fcc11fb5290b184d64c067658f"><td class="memItemLeft" align="right" valign="top"><a id="a71eb64fcc11fb5290b184d64c067658f" name="a71eb64fcc11fb5290b184d64c067658f"></a>
-struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQd</b></td></tr>
-<tr class="separator:a71eb64fcc11fb5290b184d64c067658f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a468aa38f28c79d565c7a70166e9c1ce6"><td class="memItemLeft" align="right" valign="top"><a id="a468aa38f28c79d565c7a70166e9c1ce6" name="a468aa38f28c79d565c7a70166e9c1ce6"></a>
-struct <a class="el" href="structQueue.html">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQw</b></td></tr>
-<tr class="separator:a468aa38f28c79d565c7a70166e9c1ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5104f9f37022387dbdea648afcc0c0c2"><td class="memItemLeft" align="right" valign="top"><a id="a5104f9f37022387dbdea648afcc0c0c2" name="a5104f9f37022387dbdea648afcc0c0c2"></a>
+struct <a class="el" href="queue_8h.html#structQueue">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQa</b></td></tr>
+<tr class="memdesc:a5104f9f37022387dbdea648afcc0c0c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">threadQa; the <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a> for thread A. <br /></td></tr>
+<tr class="separator:a5104f9f37022387dbdea648afcc0c0c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48d73f1f4c5ac22e3a2171f0a0e4360d"><td class="memItemLeft" align="right" valign="top"><a id="a48d73f1f4c5ac22e3a2171f0a0e4360d" name="a48d73f1f4c5ac22e3a2171f0a0e4360d"></a>
+struct <a class="el" href="queue_8h.html#structQueue">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQe</b></td></tr>
+<tr class="memdesc:a48d73f1f4c5ac22e3a2171f0a0e4360d"><td class="mdescLeft">&#160;</td><td class="mdescRight">threadQe the <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a> for thread E. <br /></td></tr>
+<tr class="separator:a48d73f1f4c5ac22e3a2171f0a0e4360d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa31102d17b4d3997ddf8f3e9878ffeb"><td class="memItemLeft" align="right" valign="top"><a id="aaa31102d17b4d3997ddf8f3e9878ffeb" name="aaa31102d17b4d3997ddf8f3e9878ffeb"></a>
+struct <a class="el" href="queue_8h.html#structQueue">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQi</b></td></tr>
+<tr class="memdesc:aaa31102d17b4d3997ddf8f3e9878ffeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">threadQi the <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a> for thread I. <br /></td></tr>
+<tr class="separator:aaa31102d17b4d3997ddf8f3e9878ffeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2756af69c0f1f279a6582dc00ca8c005"><td class="memItemLeft" align="right" valign="top"><a id="a2756af69c0f1f279a6582dc00ca8c005" name="a2756af69c0f1f279a6582dc00ca8c005"></a>
+struct <a class="el" href="queue_8h.html#structQueue">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQo</b></td></tr>
+<tr class="memdesc:a2756af69c0f1f279a6582dc00ca8c005"><td class="mdescLeft">&#160;</td><td class="mdescRight">threadQo the <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a> for thread O. <br /></td></tr>
+<tr class="separator:a2756af69c0f1f279a6582dc00ca8c005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0165b116d49677e0562307ff29b8bff"><td class="memItemLeft" align="right" valign="top"><a id="ad0165b116d49677e0562307ff29b8bff" name="ad0165b116d49677e0562307ff29b8bff"></a>
+struct <a class="el" href="queue_8h.html#structQueue">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQu</b></td></tr>
+<tr class="memdesc:ad0165b116d49677e0562307ff29b8bff"><td class="mdescLeft">&#160;</td><td class="mdescRight">threadQu the <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a> for thread U. <br /></td></tr>
+<tr class="separator:ad0165b116d49677e0562307ff29b8bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f82ec3737110ae736e36a33e2a0488"><td class="memItemLeft" align="right" valign="top"><a id="ae0f82ec3737110ae736e36a33e2a0488" name="ae0f82ec3737110ae736e36a33e2a0488"></a>
+struct <a class="el" href="queue_8h.html#structQueue">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQd</b></td></tr>
+<tr class="memdesc:ae0f82ec3737110ae736e36a33e2a0488"><td class="mdescLeft">&#160;</td><td class="mdescRight">threadQd the <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a> for thread Digit. <br /></td></tr>
+<tr class="separator:ae0f82ec3737110ae736e36a33e2a0488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb554c784ea8b1dff1318c514e444799"><td class="memItemLeft" align="right" valign="top"><a id="abb554c784ea8b1dff1318c514e444799" name="abb554c784ea8b1dff1318c514e444799"></a>
+struct <a class="el" href="queue_8h.html#structQueue">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>threadQw</b></td></tr>
+<tr class="memdesc:abb554c784ea8b1dff1318c514e444799"><td class="mdescLeft">&#160;</td><td class="mdescRight">threadQw the <a class="el" href="queue_8h.html#structQueue" title="the Queue.">Queue</a> for thread Writer. <br /></td></tr>
+<tr class="separator:abb554c784ea8b1dff1318c514e444799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a930b83edda39ee8cfa78dd4574a50bc3"><td class="memItemLeft" align="right" valign="top"><a id="a930b83edda39ee8cfa78dd4574a50bc3" name="a930b83edda39ee8cfa78dd4574a50bc3"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>sum</b> = 0</td></tr>
+<tr class="memdesc:a930b83edda39ee8cfa78dd4574a50bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">the sum of all digits. <br /></td></tr>
 <tr class="separator:a930b83edda39ee8cfa78dd4574a50bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347a7b965cc29df58e9db163bb0fb814"><td class="memItemLeft" align="right" valign="top"><a id="a347a7b965cc29df58e9db163bb0fb814" name="a347a7b965cc29df58e9db163bb0fb814"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>pipefds</b> [2]</td></tr>
+<tr class="memdesc:a347a7b965cc29df58e9db163bb0fb814"><td class="mdescLeft">&#160;</td><td class="mdescRight">the pipe file descriptors. <br /></td></tr>
 <tr class="separator:a347a7b965cc29df58e9db163bb0fb814"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f886a13de86cb9b7cebfeebe0c4643c"><td class="memItemLeft" align="right" valign="top"><a id="a0f886a13de86cb9b7cebfeebe0c4643c" name="a0f886a13de86cb9b7cebfeebe0c4643c"></a>
 pthread_cond_t&#160;</td><td class="memItemRight" valign="bottom"><b>comp_a</b> = PTHREAD_COND_INITIALIZER</td></tr>
+<tr class="memdesc:a0f886a13de86cb9b7cebfeebe0c4643c"><td class="mdescLeft">&#160;</td><td class="mdescRight">condition variable for thread A. <br /></td></tr>
 <tr class="separator:a0f886a13de86cb9b7cebfeebe0c4643c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62e8f6c79572166a5e5555402ab7cc2e"><td class="memItemLeft" align="right" valign="top"><a id="a62e8f6c79572166a5e5555402ab7cc2e" name="a62e8f6c79572166a5e5555402ab7cc2e"></a>
 pthread_cond_t&#160;</td><td class="memItemRight" valign="bottom"><b>comp_e</b> = PTHREAD_COND_INITIALIZER</td></tr>
+<tr class="memdesc:a62e8f6c79572166a5e5555402ab7cc2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">condition variable for thread E. <br /></td></tr>
 <tr class="separator:a62e8f6c79572166a5e5555402ab7cc2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ed41ae1aab4d4d265024fa183b9a394"><td class="memItemLeft" align="right" valign="top"><a id="a3ed41ae1aab4d4d265024fa183b9a394" name="a3ed41ae1aab4d4d265024fa183b9a394"></a>
 pthread_cond_t&#160;</td><td class="memItemRight" valign="bottom"><b>comp_i</b> = PTHREAD_COND_INITIALIZER</td></tr>
+<tr class="memdesc:a3ed41ae1aab4d4d265024fa183b9a394"><td class="mdescLeft">&#160;</td><td class="mdescRight">condition variable for thread I. <br /></td></tr>
 <tr class="separator:a3ed41ae1aab4d4d265024fa183b9a394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae575c0ad17fe23a94c514ee932313364"><td class="memItemLeft" align="right" valign="top"><a id="ae575c0ad17fe23a94c514ee932313364" name="ae575c0ad17fe23a94c514ee932313364"></a>
 pthread_cond_t&#160;</td><td class="memItemRight" valign="bottom"><b>comp_o</b> = PTHREAD_COND_INITIALIZER</td></tr>
+<tr class="memdesc:ae575c0ad17fe23a94c514ee932313364"><td class="mdescLeft">&#160;</td><td class="mdescRight">condition variable for thread O. <br /></td></tr>
 <tr class="separator:ae575c0ad17fe23a94c514ee932313364"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2578de5cc38b79118c1024ec7390bf97"><td class="memItemLeft" align="right" valign="top"><a id="a2578de5cc38b79118c1024ec7390bf97" name="a2578de5cc38b79118c1024ec7390bf97"></a>
 pthread_cond_t&#160;</td><td class="memItemRight" valign="bottom"><b>comp_u</b> = PTHREAD_COND_INITIALIZER</td></tr>
+<tr class="memdesc:a2578de5cc38b79118c1024ec7390bf97"><td class="mdescLeft">&#160;</td><td class="mdescRight">condition variable for thread U. <br /></td></tr>
 <tr class="separator:a2578de5cc38b79118c1024ec7390bf97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d0ddf43c8d6699722b19b9e38e9ada9"><td class="memItemLeft" align="right" valign="top"><a id="a4d0ddf43c8d6699722b19b9e38e9ada9" name="a4d0ddf43c8d6699722b19b9e38e9ada9"></a>
 pthread_cond_t&#160;</td><td class="memItemRight" valign="bottom"><b>comp_d</b> = PTHREAD_COND_INITIALIZER</td></tr>
+<tr class="memdesc:a4d0ddf43c8d6699722b19b9e38e9ada9"><td class="mdescLeft">&#160;</td><td class="mdescRight">condition variable for thread Digit. <br /></td></tr>
 <tr class="separator:a4d0ddf43c8d6699722b19b9e38e9ada9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a082bc818a185528b930f41b37e28dab2"><td class="memItemLeft" align="right" valign="top"><a id="a082bc818a185528b930f41b37e28dab2" name="a082bc818a185528b930f41b37e28dab2"></a>
 pthread_cond_t&#160;</td><td class="memItemRight" valign="bottom"><b>comp_w</b> = PTHREAD_COND_INITIALIZER</td></tr>
+<tr class="memdesc:a082bc818a185528b930f41b37e28dab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">condition variable for thread Writer. <br /></td></tr>
 <tr class="separator:a082bc818a185528b930f41b37e28dab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad8f34a7d8d1fd94cb784cb90cfffdff"><td class="memItemLeft" align="right" valign="top"><a id="aad8f34a7d8d1fd94cb784cb90cfffdff" name="aad8f34a7d8d1fd94cb784cb90cfffdff"></a>
 pthread_t&#160;</td><td class="memItemRight" valign="bottom"><b>thread_charA</b></td></tr>
+<tr class="memdesc:aad8f34a7d8d1fd94cb784cb90cfffdff"><td class="mdescLeft">&#160;</td><td class="mdescRight">thread A. <br /></td></tr>
 <tr class="separator:aad8f34a7d8d1fd94cb784cb90cfffdff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3594e992d79c880bccc235c8536e7bc"><td class="memItemLeft" align="right" valign="top"><a id="ab3594e992d79c880bccc235c8536e7bc" name="ab3594e992d79c880bccc235c8536e7bc"></a>
 pthread_t&#160;</td><td class="memItemRight" valign="bottom"><b>thread_charE</b></td></tr>
+<tr class="memdesc:ab3594e992d79c880bccc235c8536e7bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">thread E. <br /></td></tr>
 <tr class="separator:ab3594e992d79c880bccc235c8536e7bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a817c1e6b732b0b420b72bc3b2740f500"><td class="memItemLeft" align="right" valign="top"><a id="a817c1e6b732b0b420b72bc3b2740f500" name="a817c1e6b732b0b420b72bc3b2740f500"></a>
 pthread_t&#160;</td><td class="memItemRight" valign="bottom"><b>thread_charI</b></td></tr>
+<tr class="memdesc:a817c1e6b732b0b420b72bc3b2740f500"><td class="mdescLeft">&#160;</td><td class="mdescRight">thread I. <br /></td></tr>
 <tr class="separator:a817c1e6b732b0b420b72bc3b2740f500"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade058a6a33bf3b8888d950edb993d356"><td class="memItemLeft" align="right" valign="top"><a id="ade058a6a33bf3b8888d950edb993d356" name="ade058a6a33bf3b8888d950edb993d356"></a>
 pthread_t&#160;</td><td class="memItemRight" valign="bottom"><b>thread_charO</b></td></tr>
+<tr class="memdesc:ade058a6a33bf3b8888d950edb993d356"><td class="mdescLeft">&#160;</td><td class="mdescRight">thread O. <br /></td></tr>
 <tr class="separator:ade058a6a33bf3b8888d950edb993d356"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61fb919f413dd38bcf2d1ba6b5afe133"><td class="memItemLeft" align="right" valign="top"><a id="a61fb919f413dd38bcf2d1ba6b5afe133" name="a61fb919f413dd38bcf2d1ba6b5afe133"></a>
 pthread_t&#160;</td><td class="memItemRight" valign="bottom"><b>thread_charU</b></td></tr>
+<tr class="memdesc:a61fb919f413dd38bcf2d1ba6b5afe133"><td class="mdescLeft">&#160;</td><td class="mdescRight">thread U. <br /></td></tr>
 <tr class="separator:a61fb919f413dd38bcf2d1ba6b5afe133"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ed8e67c05c0b707f2574c60fd1572fd"><td class="memItemLeft" align="right" valign="top"><a id="a8ed8e67c05c0b707f2574c60fd1572fd" name="a8ed8e67c05c0b707f2574c60fd1572fd"></a>
 pthread_t&#160;</td><td class="memItemRight" valign="bottom"><b>thread_digit</b></td></tr>
+<tr class="memdesc:a8ed8e67c05c0b707f2574c60fd1572fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">thread D. <br /></td></tr>
 <tr class="separator:a8ed8e67c05c0b707f2574c60fd1572fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c8c9f44ce1d462d7e26145b3a7789c4"><td class="memItemLeft" align="right" valign="top"><a id="a8c8c9f44ce1d462d7e26145b3a7789c4" name="a8c8c9f44ce1d462d7e26145b3a7789c4"></a>
 pthread_t&#160;</td><td class="memItemRight" valign="bottom"><b>thread_writer</b></td></tr>
+<tr class="memdesc:a8c8c9f44ce1d462d7e26145b3a7789c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">thread W. <br /></td></tr>
 <tr class="separator:a8c8c9f44ce1d462d7e26145b3a7789c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a803e087325128a0ed489f7cd98eeb348"><td class="memItemLeft" align="right" valign="top"><a id="a803e087325128a0ed489f7cd98eeb348" name="a803e087325128a0ed489f7cd98eeb348"></a>
 pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_a</b> = PTHREAD_MUTEX_INITIALIZER</td></tr>
+<tr class="memdesc:a803e087325128a0ed489f7cd98eeb348"><td class="mdescLeft">&#160;</td><td class="mdescRight">mutex A. <br /></td></tr>
 <tr class="separator:a803e087325128a0ed489f7cd98eeb348"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a999e1f4bae9e73f8305648f5b736aae9"><td class="memItemLeft" align="right" valign="top"><a id="a999e1f4bae9e73f8305648f5b736aae9" name="a999e1f4bae9e73f8305648f5b736aae9"></a>
 pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_e</b> = PTHREAD_MUTEX_INITIALIZER</td></tr>
+<tr class="memdesc:a999e1f4bae9e73f8305648f5b736aae9"><td class="mdescLeft">&#160;</td><td class="mdescRight">mutex E. <br /></td></tr>
 <tr class="separator:a999e1f4bae9e73f8305648f5b736aae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa79e54b8ac623c2f1e67845179848612"><td class="memItemLeft" align="right" valign="top"><a id="aa79e54b8ac623c2f1e67845179848612" name="aa79e54b8ac623c2f1e67845179848612"></a>
 pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_i</b> = PTHREAD_MUTEX_INITIALIZER</td></tr>
+<tr class="memdesc:aa79e54b8ac623c2f1e67845179848612"><td class="mdescLeft">&#160;</td><td class="mdescRight">mutex I. <br /></td></tr>
 <tr class="separator:aa79e54b8ac623c2f1e67845179848612"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43833e9756e379ba6fb24bc495f80ba2"><td class="memItemLeft" align="right" valign="top"><a id="a43833e9756e379ba6fb24bc495f80ba2" name="a43833e9756e379ba6fb24bc495f80ba2"></a>
 pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_o</b> = PTHREAD_MUTEX_INITIALIZER</td></tr>
+<tr class="memdesc:a43833e9756e379ba6fb24bc495f80ba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">mutex O. <br /></td></tr>
 <tr class="separator:a43833e9756e379ba6fb24bc495f80ba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fbc2e332b9328652aa03fbec9fbe1f6"><td class="memItemLeft" align="right" valign="top"><a id="a6fbc2e332b9328652aa03fbec9fbe1f6" name="a6fbc2e332b9328652aa03fbec9fbe1f6"></a>
 pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_u</b> = PTHREAD_MUTEX_INITIALIZER</td></tr>
+<tr class="memdesc:a6fbc2e332b9328652aa03fbec9fbe1f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">mutex U. <br /></td></tr>
 <tr class="separator:a6fbc2e332b9328652aa03fbec9fbe1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b85d7983c517aadc693f1ede4a4eac7"><td class="memItemLeft" align="right" valign="top"><a id="a0b85d7983c517aadc693f1ede4a4eac7" name="a0b85d7983c517aadc693f1ede4a4eac7"></a>
 pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_d</b> = PTHREAD_MUTEX_INITIALIZER</td></tr>
+<tr class="memdesc:a0b85d7983c517aadc693f1ede4a4eac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">mutex D. <br /></td></tr>
 <tr class="separator:a0b85d7983c517aadc693f1ede4a4eac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae9460aadf2a431a23577d0764efaacf"><td class="memItemLeft" align="right" valign="top"><a id="aae9460aadf2a431a23577d0764efaacf" name="aae9460aadf2a431a23577d0764efaacf"></a>
 pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><b>mutex_w</b> = PTHREAD_MUTEX_INITIALIZER</td></tr>
+<tr class="memdesc:aae9460aadf2a431a23577d0764efaacf"><td class="mdescLeft">&#160;</td><td class="mdescRight">mutex W. <br /></td></tr>
 <tr class="separator:aae9460aadf2a431a23577d0764efaacf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0096ed68692b83dac0d5cf7cf780ad49"><td class="memItemLeft" align="right" valign="top"><a id="a0096ed68692b83dac0d5cf7cf780ad49" name="a0096ed68692b83dac0d5cf7cf780ad49"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>empty</b></td></tr>
 <tr class="separator:a0096ed68692b83dac0d5cf7cf780ad49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f2298b96078c4c4b50124786b47e1fd"><td class="memItemLeft" align="right" valign="top"><a id="a7f2298b96078c4c4b50124786b47e1fd" name="a7f2298b96078c4c4b50124786b47e1fd"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>empty_e</b></td></tr>
+<tr class="memdesc:a7f2298b96078c4c4b50124786b47e1fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">empty semaphore E. <br /></td></tr>
 <tr class="separator:a7f2298b96078c4c4b50124786b47e1fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8484901a7fc86b3bd00333b57c38603d"><td class="memItemLeft" align="right" valign="top"><a id="a8484901a7fc86b3bd00333b57c38603d" name="a8484901a7fc86b3bd00333b57c38603d"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>empty_i</b></td></tr>
+<tr class="memdesc:a8484901a7fc86b3bd00333b57c38603d"><td class="mdescLeft">&#160;</td><td class="mdescRight">empty semaphore I. <br /></td></tr>
 <tr class="separator:a8484901a7fc86b3bd00333b57c38603d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a596c506bd6c206ed06817464d139edf1"><td class="memItemLeft" align="right" valign="top"><a id="a596c506bd6c206ed06817464d139edf1" name="a596c506bd6c206ed06817464d139edf1"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>empty_o</b></td></tr>
+<tr class="memdesc:a596c506bd6c206ed06817464d139edf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">empty semaphore O. <br /></td></tr>
 <tr class="separator:a596c506bd6c206ed06817464d139edf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fe08a0941e31df4a7fb2f5b561f96ab"><td class="memItemLeft" align="right" valign="top"><a id="a2fe08a0941e31df4a7fb2f5b561f96ab" name="a2fe08a0941e31df4a7fb2f5b561f96ab"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>empty_u</b></td></tr>
+<tr class="memdesc:a2fe08a0941e31df4a7fb2f5b561f96ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">empty semaphore U. <br /></td></tr>
 <tr class="separator:a2fe08a0941e31df4a7fb2f5b561f96ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae40cbba07e1eb3dfade854161b52fb33"><td class="memItemLeft" align="right" valign="top"><a id="ae40cbba07e1eb3dfade854161b52fb33" name="ae40cbba07e1eb3dfade854161b52fb33"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>empty_d</b></td></tr>
+<tr class="memdesc:ae40cbba07e1eb3dfade854161b52fb33"><td class="mdescLeft">&#160;</td><td class="mdescRight">empty semaphore D. <br /></td></tr>
 <tr class="separator:ae40cbba07e1eb3dfade854161b52fb33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c7a17b7ad28e4703159cded6ba2fc03"><td class="memItemLeft" align="right" valign="top"><a id="a5c7a17b7ad28e4703159cded6ba2fc03" name="a5c7a17b7ad28e4703159cded6ba2fc03"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>empty_w</b></td></tr>
+<tr class="memdesc:a5c7a17b7ad28e4703159cded6ba2fc03"><td class="mdescLeft">&#160;</td><td class="mdescRight">empty semaphore W. <br /></td></tr>
 <tr class="separator:a5c7a17b7ad28e4703159cded6ba2fc03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25875c11ed23317723b25d45f3f4a293"><td class="memItemLeft" align="right" valign="top"><a id="a25875c11ed23317723b25d45f3f4a293" name="a25875c11ed23317723b25d45f3f4a293"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>full</b></td></tr>
 <tr class="separator:a25875c11ed23317723b25d45f3f4a293"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae07f80d8df5f7c300d4a024a70848dea"><td class="memItemLeft" align="right" valign="top"><a id="ae07f80d8df5f7c300d4a024a70848dea" name="ae07f80d8df5f7c300d4a024a70848dea"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>full_e</b></td></tr>
+<tr class="memdesc:ae07f80d8df5f7c300d4a024a70848dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">full semaphore E. <br /></td></tr>
 <tr class="separator:ae07f80d8df5f7c300d4a024a70848dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f5eb46c798bdf9e78a48766696830d0"><td class="memItemLeft" align="right" valign="top"><a id="a1f5eb46c798bdf9e78a48766696830d0" name="a1f5eb46c798bdf9e78a48766696830d0"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>full_i</b></td></tr>
+<tr class="memdesc:a1f5eb46c798bdf9e78a48766696830d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">full semaphore I. <br /></td></tr>
 <tr class="separator:a1f5eb46c798bdf9e78a48766696830d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae36c4a39d4d21d33f787148fe0a2317d"><td class="memItemLeft" align="right" valign="top"><a id="ae36c4a39d4d21d33f787148fe0a2317d" name="ae36c4a39d4d21d33f787148fe0a2317d"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>full_o</b></td></tr>
+<tr class="memdesc:ae36c4a39d4d21d33f787148fe0a2317d"><td class="mdescLeft">&#160;</td><td class="mdescRight">full semaphore O. <br /></td></tr>
 <tr class="separator:ae36c4a39d4d21d33f787148fe0a2317d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a426a33de65892acfc5c6311c3c59644e"><td class="memItemLeft" align="right" valign="top"><a id="a426a33de65892acfc5c6311c3c59644e" name="a426a33de65892acfc5c6311c3c59644e"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>full_u</b></td></tr>
+<tr class="memdesc:a426a33de65892acfc5c6311c3c59644e"><td class="mdescLeft">&#160;</td><td class="mdescRight">full semaphore U. <br /></td></tr>
 <tr class="separator:a426a33de65892acfc5c6311c3c59644e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c7ad5e0ebee2ea154e4c16a4af84bfd"><td class="memItemLeft" align="right" valign="top"><a id="a9c7ad5e0ebee2ea154e4c16a4af84bfd" name="a9c7ad5e0ebee2ea154e4c16a4af84bfd"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>full_d</b></td></tr>
+<tr class="memdesc:a9c7ad5e0ebee2ea154e4c16a4af84bfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">full semaphore D. <br /></td></tr>
 <tr class="separator:a9c7ad5e0ebee2ea154e4c16a4af84bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74f971c2d63f23dd19a5981ca73898f6"><td class="memItemLeft" align="right" valign="top"><a id="a74f971c2d63f23dd19a5981ca73898f6" name="a74f971c2d63f23dd19a5981ca73898f6"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>full_w</b></td></tr>
+<tr class="memdesc:a74f971c2d63f23dd19a5981ca73898f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">full semaphore W. <br /></td></tr>
 <tr class="separator:a74f971c2d63f23dd19a5981ca73898f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae700e9f507033dbe5a7c14e7314cdadc"><td class="memItemLeft" align="right" valign="top"><a id="ae700e9f507033dbe5a7c14e7314cdadc" name="ae700e9f507033dbe5a7c14e7314cdadc"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>cli_sock</b></td></tr>
+<tr class="memdesc:ae700e9f507033dbe5a7c14e7314cdadc"><td class="mdescLeft">&#160;</td><td class="mdescRight">client socket semaphore. <br /></td></tr>
 <tr class="separator:ae700e9f507033dbe5a7c14e7314cdadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0328e3903249010d79e011b8a191249b"><td class="memItemLeft" align="right" valign="top"><a id="a0328e3903249010d79e011b8a191249b" name="a0328e3903249010d79e011b8a191249b"></a>
 sem_t&#160;</td><td class="memItemRight" valign="bottom"><b>cli_sock_free</b></td></tr>
+<tr class="memdesc:a0328e3903249010d79e011b8a191249b"><td class="mdescLeft">&#160;</td><td class="mdescRight">client socket free semaphore. <br /></td></tr>
 <tr class="separator:a0328e3903249010d79e011b8a191249b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The TCP Server Implementation. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a0ddf1224851353fc92bfbff6f499fa97" name="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run the main aerver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>the argument count. </td></tr>
+    <tr><td class="paramname">argv</td><td>the arguments list. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a28e07e221f5b4a28c9bb3d3fba4352fd" name="a28e07e221f5b4a28c9bb3d3fba4352fd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a28e07e221f5b4a28c9bb3d3fba4352fd">&#9670;&nbsp;</a></span>thread_handler()</h2>
 

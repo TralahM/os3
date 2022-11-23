@@ -22,55 +22,55 @@
 \DoxyCodeLine{22 \textcolor{preprocessor}{\#include <unistd.h>}}
 \DoxyCodeLine{23 }
 \DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{buffer_8h}{buffer.h}}"{}}}
-\DoxyCodeLine{28 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structMessageInfo}{MessageInfo}} \mbox{\hyperlink{structMessageInfo}{MessageInfo}};}
+\DoxyCodeLine{28 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{common_8h_structMessageInfo}{MessageInfo}} \mbox{\hyperlink{common_8h_structMessageInfo}{MessageInfo}};}
 \DoxyCodeLine{29 }
-\DoxyCodeLine{34 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{common_8h_afb964b91ae7304584fd407dc316fa08e}{\_\_attribute\_\_}}((\_\_packed\_\_)) \mbox{\hyperlink{structMessageFrame}{MessageFrame}} \{}
-\DoxyCodeLine{35     uint16\_t SYN;   }
-\DoxyCodeLine{36     uint8\_t LENGTH; }
-\DoxyCodeLine{37     uint32\_t DATA;  }
-\DoxyCodeLine{38 \} \mbox{\hyperlink{structMessageFrame}{MessageFrame}};}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{43 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\mbox{\hyperlink{unionMessageFrameConverter}{MessageFrameConverter}} \{}
-\DoxyCodeLine{44     \mbox{\hyperlink{structMessageFrame}{MessageFrame}} \mbox{\hyperlink{unionMessageFrameConverter_a20c0fa434900fc0049f552db778d671c}{frame}};                  }
-\DoxyCodeLine{45     uint8\_t \mbox{\hyperlink{unionMessageFrameConverter_a4012d4a6fba0f90e63d4265a27129443}{bytes}}[\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structMessageFrame}{MessageFrame}})]; }
-\DoxyCodeLine{46 \} \mbox{\hyperlink{unionMessageFrameConverter}{MessageFrameConverter}};}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{51 \textcolor{keyword}{struct }\mbox{\hyperlink{structMessageInfo}{MessageInfo}} \{}
-\DoxyCodeLine{52     \textcolor{keywordtype}{char}* \mbox{\hyperlink{structMessageInfo_a830e848f5740682d87ba32aa7ed5b809}{str}}; }
-\DoxyCodeLine{53 \};}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{60 \textcolor{keywordtype}{void} \mbox{\hyperlink{common_8h_a993396ccf109ec7e16cc7066b03803c0}{DieWithUserMessage}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* msg, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* detail);}
-\DoxyCodeLine{65 \textcolor{keywordtype}{void} \mbox{\hyperlink{common_8h_a2bf9e1bdae264e0c2d475dc555e805f7}{DieWithSystemMessage}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* msg);}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{71 \textcolor{keywordtype}{void} \mbox{\hyperlink{common_8h_af1106bd14b4adbd9239ac33b224f3fb1}{HandleTCPClient}}(\textcolor{keywordtype}{int} clntSocket);}
-\DoxyCodeLine{77 \textcolor{keywordtype}{void} \mbox{\hyperlink{common_8h_ac46a7bdd12ba8ea1a07068fd2ed676d7}{PrintSocketAddress}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} sockaddr* address, FILE* stream);}
-\DoxyCodeLine{83 \textcolor{keywordtype}{int} \mbox{\hyperlink{common_8h_ab04052790aad51f95b05194c3bc8a9fb}{SetupTCPClientSocket}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* host, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* service);}
-\DoxyCodeLine{88 \textcolor{keywordtype}{int} \mbox{\hyperlink{common_8h_aa27b5647b005737cecc97dbf2de7e849}{SetupTCPServerSocket}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* service);}
-\DoxyCodeLine{93 \textcolor{keywordtype}{int} \mbox{\hyperlink{common_8h_a73b7289def27d2edc46c83f073d54583}{AcceptTCPConnection}}(\textcolor{keywordtype}{int} servSock);}
-\DoxyCodeLine{94 }
-\DoxyCodeLine{101 \textcolor{keywordtype}{int} \mbox{\hyperlink{common_8h_a8d2b20873330485098162740ecbff009}{GetNextMsg}}(FILE* in, uint8\_t* buf, \textcolor{keywordtype}{size\_t} bufSize);}
-\DoxyCodeLine{108 \textcolor{keywordtype}{int} \mbox{\hyperlink{common_8h_aac63701a62a411d59e97309d0c5e9c4f}{PutMsg}}(uint8\_t buf[], \textcolor{keywordtype}{size\_t} msgSize, FILE* out);}
-\DoxyCodeLine{109 }
-\DoxyCodeLine{116 \textcolor{keywordtype}{char}* \mbox{\hyperlink{common_8h_aae8c34d637e5d1f5ac6c6b7fe66b1197}{replace}}(\textcolor{keywordtype}{char} \textcolor{keyword}{const}* \textcolor{keyword}{const} original, \textcolor{keywordtype}{char} \textcolor{keyword}{const}* \textcolor{keyword}{const} pattern,}
-\DoxyCodeLine{117               \textcolor{keywordtype}{char} \textcolor{keyword}{const}* \textcolor{keyword}{const} replacement);}
-\DoxyCodeLine{123 uint8\_t \mbox{\hyperlink{common_8h_a6186240f814f174e1536c928686ee234}{get\_byte\_from}}(uint32\_t value, \textcolor{keywordtype}{int} start\_bit);}
-\DoxyCodeLine{128 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{common_8h_a32d81546bce3a51995e4fdd272181c32}{count\_set\_bits}}(uint8\_t n);}
-\DoxyCodeLine{134 uint8\_t \mbox{\hyperlink{common_8h_a806fbe54b356a140cb58d0a796f02b53}{clear\_bit}}(uint8\_t n, \textcolor{keywordtype}{int} i);}
-\DoxyCodeLine{140 uint8\_t \mbox{\hyperlink{common_8h_a498e502423db47aae9a21c1bab28bb24}{set\_bit}}(uint8\_t n, \textcolor{keywordtype}{int} i);}
-\DoxyCodeLine{145 uint8\_t \mbox{\hyperlink{common_8h_a0d9dea4018405dedde0dc3a7fb7caa5f}{char2bin}}(\textcolor{keywordtype}{char} c);}
-\DoxyCodeLine{150 \textcolor{keywordtype}{char} \mbox{\hyperlink{common_8h_a34abb14456e41e262f3b8d9cb85d9bd5}{bin2char}}(uint8\_t b);}
-\DoxyCodeLine{156 \textcolor{keywordtype}{bool} \mbox{\hyperlink{common_8h_a7f6a03aba249c6e6eef61ba2047d11dd}{check\_parity\_bit}}(uint8\_t bits);}
-\DoxyCodeLine{162 uint8\_t \mbox{\hyperlink{common_8h_a6e80b84136a09feb92a31f4563e130f9}{add\_parity\_bit}}(uint8\_t bits);}
-\DoxyCodeLine{167 uint8\_t \mbox{\hyperlink{common_8h_ad0dddccab2a3a9897e90386f79dde4f5}{remove\_parity\_bit}}(uint8\_t bits);}
-\DoxyCodeLine{174 \textcolor{keywordtype}{char}* \mbox{\hyperlink{common_8h_ae2c92f95ed835c207a5a5ebbd8281e55}{int2bin}}(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{char}* buffer, \textcolor{keywordtype}{int} buf\_size);}
-\DoxyCodeLine{180 uint8\_t \mbox{\hyperlink{common_8h_ab9f8bc704586a8aeb99c6c1c92db6457}{get\_kth\_bit}}(uint8\_t bits, \textcolor{keywordtype}{int} k);}
-\DoxyCodeLine{181 }
-\DoxyCodeLine{185 \mbox{\hyperlink{structMessageFrame}{MessageFrame}}* \mbox{\hyperlink{common_8h_afd2df100fc341dd31d70a0c85926c91b}{message\_frame\_create}}();}
-\DoxyCodeLine{189 \mbox{\hyperlink{structMessageInfo}{MessageInfo}}* \mbox{\hyperlink{common_8h_a9f9d1e43881e05c617bf00c2f15334d9}{message\_info\_create}}();}
-\DoxyCodeLine{195 \textcolor{keywordtype}{bool} \mbox{\hyperlink{common_8h_a2e8aa60cfade2878e1505f5235d8df45}{DeFrame}}(\mbox{\hyperlink{structMessageFrame}{MessageFrame}}* frame, \mbox{\hyperlink{structMessageInfo}{MessageInfo}}* msg);}
-\DoxyCodeLine{201 \textcolor{keywordtype}{bool} \mbox{\hyperlink{common_8h_a90c674e99706ff8cb9957337f257db5e}{Frame}}(\mbox{\hyperlink{structMessageInfo}{MessageInfo}}* msg, \mbox{\hyperlink{structMessageFrame}{MessageFrame}}* frame);}
-\DoxyCodeLine{206 uint8\_t* \mbox{\hyperlink{common_8h_a81f0293f588c4a279d929a64706b9ef0}{DecodeFrame}}(uint8\_t* inBuf);}
-\DoxyCodeLine{211 uint8\_t* \mbox{\hyperlink{common_8h_a92100f9ae72d43f5e098812c65ce037a}{EncodeFrame}}(\mbox{\hyperlink{structMessageFrame}{MessageFrame}}* frameBuf);}
-\DoxyCodeLine{212 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{36 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{common_8h_afb964b91ae7304584fd407dc316fa08e}{\_\_attribute\_\_}}((\_\_packed\_\_)) \mbox{\hyperlink{structMessageFrame}{MessageFrame}} \{}
+\DoxyCodeLine{37     uint16\_t SYN;   }
+\DoxyCodeLine{38     uint8\_t LENGTH; }
+\DoxyCodeLine{39     uint32\_t DATA;  }
+\DoxyCodeLine{40 \} \mbox{\hyperlink{common_8h_ac629743a2d59d2294de9d5250b1b18a2}{MessageFrame}};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{46 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\mbox{\hyperlink{common_8h_unionMessageFrameConverter}{MessageFrameConverter}} \{}
+\DoxyCodeLine{47     \mbox{\hyperlink{structMessageFrame}{MessageFrame}} \mbox{\hyperlink{common_8h_a20c0fa434900fc0049f552db778d671c}{frame}};                  }
+\DoxyCodeLine{48     uint8\_t \mbox{\hyperlink{common_8h_a4012d4a6fba0f90e63d4265a27129443}{bytes}}[\textcolor{keyword}{sizeof}(\mbox{\hyperlink{common_8h_ac629743a2d59d2294de9d5250b1b18a2}{MessageFrame}})]; }
+\DoxyCodeLine{49 \} \mbox{\hyperlink{common_8h_unionMessageFrameConverter}{MessageFrameConverter}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{54 \textcolor{keyword}{struct }\mbox{\hyperlink{common_8h_structMessageInfo}{MessageInfo}} \{}
+\DoxyCodeLine{55     \textcolor{keywordtype}{char}* \mbox{\hyperlink{common_8h_a830e848f5740682d87ba32aa7ed5b809}{str}}; }
+\DoxyCodeLine{56 \};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{63 \textcolor{keywordtype}{void} \mbox{\hyperlink{common_8h_a993396ccf109ec7e16cc7066b03803c0}{DieWithUserMessage}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* msg, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* detail);}
+\DoxyCodeLine{68 \textcolor{keywordtype}{void} \mbox{\hyperlink{common_8h_a2bf9e1bdae264e0c2d475dc555e805f7}{DieWithSystemMessage}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* msg);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{74 \textcolor{keywordtype}{void} \mbox{\hyperlink{common_8h_af1106bd14b4adbd9239ac33b224f3fb1}{HandleTCPClient}}(\textcolor{keywordtype}{int} clntSocket);}
+\DoxyCodeLine{80 \textcolor{keywordtype}{void} \mbox{\hyperlink{common_8h_ac46a7bdd12ba8ea1a07068fd2ed676d7}{PrintSocketAddress}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} sockaddr* address, FILE* stream);}
+\DoxyCodeLine{86 \textcolor{keywordtype}{int} \mbox{\hyperlink{common_8h_ab04052790aad51f95b05194c3bc8a9fb}{SetupTCPClientSocket}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* host, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* service);}
+\DoxyCodeLine{91 \textcolor{keywordtype}{int} \mbox{\hyperlink{common_8h_aa27b5647b005737cecc97dbf2de7e849}{SetupTCPServerSocket}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* service);}
+\DoxyCodeLine{96 \textcolor{keywordtype}{int} \mbox{\hyperlink{common_8h_a73b7289def27d2edc46c83f073d54583}{AcceptTCPConnection}}(\textcolor{keywordtype}{int} servSock);}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{104 \textcolor{keywordtype}{int} \mbox{\hyperlink{common_8h_a8d2b20873330485098162740ecbff009}{GetNextMsg}}(FILE* in, uint8\_t* buf, \textcolor{keywordtype}{size\_t} bufSize);}
+\DoxyCodeLine{111 \textcolor{keywordtype}{int} \mbox{\hyperlink{common_8h_aac63701a62a411d59e97309d0c5e9c4f}{PutMsg}}(uint8\_t buf[], \textcolor{keywordtype}{size\_t} msgSize, FILE* out);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{119 \textcolor{keywordtype}{char}* \mbox{\hyperlink{common_8h_aae8c34d637e5d1f5ac6c6b7fe66b1197}{replace}}(\textcolor{keywordtype}{char} \textcolor{keyword}{const}* \textcolor{keyword}{const} original, \textcolor{keywordtype}{char} \textcolor{keyword}{const}* \textcolor{keyword}{const} pattern,}
+\DoxyCodeLine{120               \textcolor{keywordtype}{char} \textcolor{keyword}{const}* \textcolor{keyword}{const} replacement);}
+\DoxyCodeLine{126 uint8\_t \mbox{\hyperlink{common_8h_a6186240f814f174e1536c928686ee234}{get\_byte\_from}}(uint32\_t value, \textcolor{keywordtype}{int} start\_bit);}
+\DoxyCodeLine{131 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{common_8h_a32d81546bce3a51995e4fdd272181c32}{count\_set\_bits}}(uint8\_t n);}
+\DoxyCodeLine{137 uint8\_t \mbox{\hyperlink{common_8h_a806fbe54b356a140cb58d0a796f02b53}{clear\_bit}}(uint8\_t n, \textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{143 uint8\_t \mbox{\hyperlink{common_8h_a498e502423db47aae9a21c1bab28bb24}{set\_bit}}(uint8\_t n, \textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{148 uint8\_t \mbox{\hyperlink{common_8h_a0d9dea4018405dedde0dc3a7fb7caa5f}{char2bin}}(\textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{153 \textcolor{keywordtype}{char} \mbox{\hyperlink{common_8h_a34abb14456e41e262f3b8d9cb85d9bd5}{bin2char}}(uint8\_t b);}
+\DoxyCodeLine{159 \textcolor{keywordtype}{bool} \mbox{\hyperlink{common_8h_a7f6a03aba249c6e6eef61ba2047d11dd}{check\_parity\_bit}}(uint8\_t bits);}
+\DoxyCodeLine{165 uint8\_t \mbox{\hyperlink{common_8h_a6e80b84136a09feb92a31f4563e130f9}{add\_parity\_bit}}(uint8\_t bits);}
+\DoxyCodeLine{170 uint8\_t \mbox{\hyperlink{common_8h_ad0dddccab2a3a9897e90386f79dde4f5}{remove\_parity\_bit}}(uint8\_t bits);}
+\DoxyCodeLine{177 \textcolor{keywordtype}{char}* \mbox{\hyperlink{common_8h_ae2c92f95ed835c207a5a5ebbd8281e55}{int2bin}}(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{char}* buffer, \textcolor{keywordtype}{int} buf\_size);}
+\DoxyCodeLine{183 uint8\_t \mbox{\hyperlink{common_8h_ab9f8bc704586a8aeb99c6c1c92db6457}{get\_kth\_bit}}(uint8\_t bits, \textcolor{keywordtype}{int} k);}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{188 \mbox{\hyperlink{structMessageFrame}{MessageFrame}}* \mbox{\hyperlink{common_8h_afd2df100fc341dd31d70a0c85926c91b}{message\_frame\_create}}();}
+\DoxyCodeLine{192 \mbox{\hyperlink{common_8h_structMessageInfo}{MessageInfo}}* \mbox{\hyperlink{common_8h_a9f9d1e43881e05c617bf00c2f15334d9}{message\_info\_create}}();}
+\DoxyCodeLine{198 \textcolor{keywordtype}{bool} \mbox{\hyperlink{common_8h_a2e8aa60cfade2878e1505f5235d8df45}{DeFrame}}(\mbox{\hyperlink{structMessageFrame}{MessageFrame}}* frame, \mbox{\hyperlink{common_8h_structMessageInfo}{MessageInfo}}* msg);}
+\DoxyCodeLine{204 \textcolor{keywordtype}{bool} \mbox{\hyperlink{common_8h_a90c674e99706ff8cb9957337f257db5e}{Frame}}(\mbox{\hyperlink{common_8h_structMessageInfo}{MessageInfo}}* msg, \mbox{\hyperlink{structMessageFrame}{MessageFrame}}* frame);}
+\DoxyCodeLine{209 uint8\_t* \mbox{\hyperlink{common_8h_a81f0293f588c4a279d929a64706b9ef0}{DecodeFrame}}(uint8\_t* inBuf);}
+\DoxyCodeLine{214 uint8\_t* \mbox{\hyperlink{common_8h_a92100f9ae72d43f5e098812c65ce037a}{EncodeFrame}}(\mbox{\hyperlink{structMessageFrame}{MessageFrame}}* frameBuf);}
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

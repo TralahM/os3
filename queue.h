@@ -6,7 +6,8 @@
 #include <pthread.h>
 
 /**
- * \struct QNode the Queue Node.
+ * \struct QNode;
+ * the Queue Node.
  */
 struct QNode {
     char* data;
@@ -14,7 +15,8 @@ struct QNode {
 };
 
 /**
- * \struct Queue the Queue.
+ * \struct Queue;
+ * the Queue.
  */
 struct Queue {
     struct QNode *head, *tail;
@@ -23,9 +25,9 @@ struct Queue {
 
 /**
  * Create new Qnode with this string.
- * @param str the string.
+ * @param data the string.
  */
-struct QNode* newQNode(char*);
+struct QNode* newQNode(char* data);
 
 /**
  * Create new Queue.

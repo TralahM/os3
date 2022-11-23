@@ -2,20 +2,18 @@
 \label{queue_8h}\index{queue.h@{queue.h}}
 
 
-\mbox{\hyperlink{structQueue}{Queue}} Implementation.  
+\mbox{\hyperlink{queue_8h_structQueue}{Queue}} Implementation.  
 
 
 {\ttfamily \#include $<$pthread.\+h$>$}\newline
-Include dependency graph for queue.\+h\+:
-\nopagebreak
+Include dependency graph for queue.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=143pt]{queue_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,27 +23,88 @@ This graph shows which files directly or indirectly include this file\+:
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structQNode}{QNode}}
-\begin{DoxyCompactList}\small\item\em Node. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structQueue}{Queue}}
-\end{DoxyCompactItemize}
+struct \mbox{\hyperlink{queue_8h_structQNode}{QNode}}
+\begin{DoxyCompactList}\small\item\em the \mbox{\hyperlink{queue_8h_structQueue}{Queue}} Node.  \mbox{\hyperlink{queue_8h_structQNode}{More...}}\end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{queue_8h_structQueue}{Queue}}
+\begin{DoxyCompactList}\small\item\em the \mbox{\hyperlink{queue_8h_structQueue}{Queue}}.  \mbox{\hyperlink{queue_8h_structQueue}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structQNode}{QNode}} $\ast$ \mbox{\hyperlink{queue_8h_ab3f32d5317044888671cac7d23b3b58a}{new\+QNode}} (char $\ast$)
+struct \mbox{\hyperlink{queue_8h_structQNode}{QNode}} $\ast$ \mbox{\hyperlink{queue_8h_aab7e12129b2a6112c4ab086537958e30}{new\+QNode}} (char $\ast$data)
 \begin{DoxyCompactList}\small\item\em Create new Qnode with this string. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{queue_8h_a0a2cdcfbbfa150a17f06b30ca3c5ab94}\label{queue_8h_a0a2cdcfbbfa150a17f06b30ca3c5ab94}} 
-struct \mbox{\hyperlink{structQueue}{Queue}} $\ast$ {\bfseries create\+Queue} ()
-\begin{DoxyCompactList}\small\item\em Create new \mbox{\hyperlink{structQueue}{Queue}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{queue_8h_a153421e54286f25f74cf1516a59c7100}{en\+Queue}} (struct \mbox{\hyperlink{structQueue}{Queue}} $\ast$q, char $\ast$str)
+struct \mbox{\hyperlink{queue_8h_structQueue}{Queue}} $\ast$ {\bfseries create\+Queue} ()
+\begin{DoxyCompactList}\small\item\em Create new \mbox{\hyperlink{queue_8h_structQueue}{Queue}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{queue_8h_a153421e54286f25f74cf1516a59c7100}{en\+Queue}} (struct \mbox{\hyperlink{queue_8h_structQueue}{Queue}} $\ast$q, char $\ast$str)
 \begin{DoxyCompactList}\small\item\em Create new Qnode with this string. \end{DoxyCompactList}\item 
-char $\ast$ \mbox{\hyperlink{queue_8h_a71cdf1d0746ad261b6f18d1237c183b9}{de\+Queue}} (struct \mbox{\hyperlink{structQueue}{Queue}} $\ast$q)
-\begin{DoxyCompactList}\small\item\em De\+Queue from this \mbox{\hyperlink{structQueue}{Queue}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+char $\ast$ \mbox{\hyperlink{queue_8h_a71cdf1d0746ad261b6f18d1237c183b9}{de\+Queue}} (struct \mbox{\hyperlink{queue_8h_structQueue}{Queue}} $\ast$q)
+\begin{DoxyCompactList}\small\item\em De\+Queue from this \mbox{\hyperlink{queue_8h_structQueue}{Queue}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\mbox{\hyperlink{structQueue}{Queue}} Implementation. 
+\mbox{\hyperlink{queue_8h_structQueue}{Queue}} Implementation. 
 
+
+
+\doxysubsection{Class Documentation}
+\index{QNode@{QNode}}\label{structQNode}
+\Hypertarget{queue_8h_structQNode}
+\doxysubsubsection{struct QNode}
+the \mbox{\hyperlink{queue_8h_structQueue}{Queue}} Node. 
+
+Collaboration diagram for QNode\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=173pt]{structQNode__coll__graph}
+\end{center}
+\end{figure}
+\begin{DoxyFields}{Class Members}
+\mbox{\Hypertarget{queue_8h_ab8c3d60b8613d604fb05ae1e0f55f898}\label{queue_8h_ab8c3d60b8613d604fb05ae1e0f55f898}} 
+char $\ast$&
+data&
+\\
+\hline
+
+\mbox{\Hypertarget{queue_8h_a3b7155192216d5b7983b0751dfa487c0}\label{queue_8h_a3b7155192216d5b7983b0751dfa487c0}} 
+struct \mbox{\hyperlink{queue_8h_structQNode}{QNode}} $\ast$&
+next&
+\\
+\hline
+
+\end{DoxyFields}
+\index{Queue@{Queue}}\label{structQueue}
+\Hypertarget{queue_8h_structQueue}
+\doxysubsubsection{struct Queue}
+the \mbox{\hyperlink{queue_8h_structQueue}{Queue}}. 
+
+Collaboration diagram for Queue\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=173pt]{structQueue__coll__graph}
+\end{center}
+\end{figure}
+\begin{DoxyFields}{Class Members}
+\mbox{\Hypertarget{queue_8h_a0fa8c0358802b33fa7a04d7ff8d5a24b}\label{queue_8h_a0fa8c0358802b33fa7a04d7ff8d5a24b}} 
+struct \mbox{\hyperlink{queue_8h_structQNode}{QNode}} $\ast$&
+head&
+\\
+\hline
+
+\mbox{\Hypertarget{queue_8h_ac7d9701d244e3ba255ef8556e0562dc6}\label{queue_8h_ac7d9701d244e3ba255ef8556e0562dc6}} 
+int&
+size&
+\\
+\hline
+
+\mbox{\Hypertarget{queue_8h_a5143d339828d0884bf28c7b2f8caa881}\label{queue_8h_a5143d339828d0884bf28c7b2f8caa881}} 
+struct \mbox{\hyperlink{queue_8h_structQNode}{QNode}} $\ast$&
+tail&
+\\
+\hline
+
+\end{DoxyFields}
 
 
 \doxysubsection{Function Documentation}
@@ -53,22 +112,22 @@ char $\ast$ \mbox{\hyperlink{queue_8h_a71cdf1d0746ad261b6f18d1237c183b9}{de\+Que
 \index{queue.h@{queue.h}!deQueue@{deQueue}}
 \index{deQueue@{deQueue}!queue.h@{queue.h}}
 \doxysubsubsection{\texorpdfstring{deQueue()}{deQueue()}}
-{\footnotesize\ttfamily char $\ast$ de\+Queue (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structQueue}{Queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily char $\ast$ de\+Queue (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{queue_8h_structQueue}{Queue}} $\ast$}]{q }\end{DoxyParamCaption})}
 
 
 
-De\+Queue from this \mbox{\hyperlink{structQueue}{Queue}}. 
+De\+Queue from this \mbox{\hyperlink{queue_8h_structQueue}{Queue}}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em q} & the \mbox{\hyperlink{structQueue}{Queue}}. \\
+{\em q} & the \mbox{\hyperlink{queue_8h_structQueue}{Queue}}. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{queue_8h_a153421e54286f25f74cf1516a59c7100}\label{queue_8h_a153421e54286f25f74cf1516a59c7100}} 
 \index{queue.h@{queue.h}!enQueue@{enQueue}}
 \index{enQueue@{enQueue}!queue.h@{queue.h}}
 \doxysubsubsection{\texorpdfstring{enQueue()}{enQueue()}}
-{\footnotesize\ttfamily void en\+Queue (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structQueue}{Queue}} $\ast$}]{q,  }\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void en\+Queue (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{queue_8h_structQueue}{Queue}} $\ast$}]{q,  }\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
 
 
 
@@ -76,16 +135,16 @@ Create new Qnode with this string.
 
 
 \begin{DoxyParams}{Parameters}
-{\em q} & the \mbox{\hyperlink{structQueue}{Queue}}. \\
+{\em q} & the \mbox{\hyperlink{queue_8h_structQueue}{Queue}}. \\
 \hline
 {\em str} & the string. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{queue_8h_ab3f32d5317044888671cac7d23b3b58a}\label{queue_8h_ab3f32d5317044888671cac7d23b3b58a}} 
+\mbox{\Hypertarget{queue_8h_aab7e12129b2a6112c4ab086537958e30}\label{queue_8h_aab7e12129b2a6112c4ab086537958e30}} 
 \index{queue.h@{queue.h}!newQNode@{newQNode}}
 \index{newQNode@{newQNode}!queue.h@{queue.h}}
 \doxysubsubsection{\texorpdfstring{newQNode()}{newQNode()}}
-{\footnotesize\ttfamily struct \mbox{\hyperlink{structQNode}{QNode}} $\ast$ new\+QNode (\begin{DoxyParamCaption}\item[{char $\ast$}]{data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{queue_8h_structQNode}{QNode}} $\ast$ new\+QNode (\begin{DoxyParamCaption}\item[{char $\ast$}]{data }\end{DoxyParamCaption})}
 
 
 
@@ -93,6 +152,6 @@ Create new Qnode with this string.
 
 
 \begin{DoxyParams}{Parameters}
-{\em str} & the string. \\
+{\em data} & the string. \\
 \hline
 \end{DoxyParams}

@@ -1,6 +1,8 @@
 /**
  * \file server.c
  * The TCP Server Implementation.
+ * \def MaxIt
+ * maximum iterations.
  */
 #include <pthread.h>
 #include <semaphore.h>
@@ -9,60 +11,118 @@
 #include "queue.h"
 #define MaxIt 10
 
-/* \var threadQa the Queue for thread A. */
+/**
+ * \var struct Queue threadQa;
+ ** threadQa; the Queue for thread A. */
 struct Queue* threadQa;
-/* \var threadQe the Queue for thread E. */
+/**
+ * \var struct Queue threadQe;
+ ** threadQe the Queue for thread E. */
 struct Queue* threadQe;
-/* \var threadQi the Queue for thread I. */
+/**
+ * \var struct Queue threadQi;
+ ** threadQi the Queue for thread I. */
 struct Queue* threadQi;
-/* \var threadQo the Queue for thread O. */
+/**
+ * \var struct Queue threadQo;
+ ** threadQo the Queue for thread O. */
 struct Queue* threadQo;
-/* \var threadQu the Queue for thread U. */
+/**
+ * \var struct Queue threadQu;
+ ** threadQu the Queue for thread U. */
 struct Queue* threadQu;
-/* \var threadQd the Queue for thread Digit. */
+/**
+ * \var struct Queue threadQd;
+ ** threadQd the Queue for thread Digit. */
 struct Queue* threadQd;
-/* \var threadQw the Queue for thread Writer. */
+/**
+ * \var struct Queue threadQw;
+ ** threadQw the Queue for thread Writer. */
 struct Queue* threadQw;
-/* \var sum the sum of all digits. */
+/**
+ * \var int sum;
+ * the sum of all digits. */
 int sum = 0;
-/* \var pipefds the pipe file descriptors. */
+/**
+ * \var int pipefds[2];
+ *  the pipe file descriptors. */
 int pipefds[2];
 
-/* \var comp_a condition variable for thread A. */
+/**
+ * \var pthread_cond_t comp_a;
+ * condition variable for thread A. */
 pthread_cond_t comp_a = PTHREAD_COND_INITIALIZER;
-/* \var comp_e condition variable for thread E. */
+/**
+ * \var pthread_cond_t comp_e;
+ * condition variable for thread E. */
 pthread_cond_t comp_e = PTHREAD_COND_INITIALIZER;
-/* \var comp_i condition variable for thread I. */
+/**
+ * \var pthread_cond_t comp_i;
+ * condition variable for thread I. */
 pthread_cond_t comp_i = PTHREAD_COND_INITIALIZER;
-/* \var comp_o condition variable for thread O. */
+/**
+ * \var pthread_cond_t comp_o;
+ * condition variable for thread O. */
 pthread_cond_t comp_o = PTHREAD_COND_INITIALIZER;
-/* \var comp_u condition variable for thread U. */
+/**
+ * \var pthread_cond_t comp_u;
+ * condition variable for thread U. */
 pthread_cond_t comp_u = PTHREAD_COND_INITIALIZER;
-/* \var comp_d condition variable for thread Digit. */
+/**
+ * \var pthread_cond_t comp_d;
+ * condition variable for thread Digit. */
 pthread_cond_t comp_d = PTHREAD_COND_INITIALIZER;
-/* \var comp_w condition variable for thread Writer. */
+/**
+ * \var pthread_cond_t comp_w;
+ * condition variable for thread Writer. */
 pthread_cond_t comp_w = PTHREAD_COND_INITIALIZER;
 
 /**
- * \var thread_charA thread A.
- * \var thread_charE thread E.
- * \var thread_charI thread I.
- * \var thread_charO thread O.
- * \var thread_charU thread U.
- * \var thread_charD thread D.
- * \var thread_charW thread W.
+ * \var pthread_t thread_charA;
+ * thread A.
+ **
+ * \var pthread_t thread_charE;
+ * thread E.
+ **
+ * \var pthread_t thread_charI;
+ * thread I.
+ **
+ * \var pthread_t thread_charO;
+ * thread O.
+ **
+ * \var pthread_t thread_charU;
+ * thread U.
+ **
+ * \var pthread_t thread_digit;
+ * thread D.
+ **
+ * \var pthread_t thread_writer;
+ * thread W.
  */
 pthread_t thread_charA, thread_charE, thread_charI, thread_charO, thread_charU,
     thread_digit, thread_writer;
 
 /**
- * \var mutex_a mutex A.
- * \var mutex_e mutex E.
- * \var mutex_i mutex I.
- * \var mutex_o mutex O.
- * \var mutex_u mutex U.
- * \var mutex_d mutex D.
- * \var mutex_w mutex W.
+ * \var pthread_mutex_t mutex_a;
+ * mutex A.
+ **
+ * \var pthread_mutex_t mutex_e;
+ * mutex E.
+ **
+ * \var pthread_mutex_t mutex_i;
+ * mutex I.
+ **
+ * \var pthread_mutex_t mutex_o;
+ * mutex O.
+ **
+ * \var pthread_mutex_t mutex_u;
+ * mutex U.
+ **
+ * \var pthread_mutex_t mutex_d;
+ * mutex D.
+ **
+ * \var pthread_mutex_t mutex_w;
+ * mutex W.
  */
 pthread_mutex_t mutex_a = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t mutex_e = PTHREAD_MUTEX_INITIALIZER;
@@ -72,25 +132,64 @@ pthread_mutex_t mutex_u = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t mutex_d = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t mutex_w = PTHREAD_MUTEX_INITIALIZER;
 
-/**
- * \var empty empty semaphore A.
- * \var empty_e empty semaphore E.
- * \var empty_i empty semaphore I.
- * \var empty_o empty semaphore O.
- * \var empty_u empty semaphore U.
- * \var empty_d empty semaphore D.
- * \var empty_w empty semaphore W.
+/**!
+ * \var sem_t empty;
+ * empty semaphore A.
+ **
+ * \var sem_t empty;
+ * empty semaphore A.
+ **
+ * \var sem_t empty_e;
+ * empty semaphore E.
+ **
+ * \var sem_t empty_i;
+ * empty semaphore I.
+ **
+ * \var sem_t empty_o;
+ * empty semaphore O.
+ **
+ * \var sem_t empty_u;
+ * empty semaphore U.
+ **
+ * \var sem_t empty_d;
+ * empty semaphore D.
+ **
+ * \var sem_t empty_w;
+ * empty semaphore W.
  */
 sem_t empty, empty_e, empty_i, empty_o, empty_u, empty_d, empty_w;
 
-/**
- * \var full full semaphore A.
- * \var full_e full semaphore E.
- * \var full_i full semaphore I.
- * \var full_o full semaphore O.
- * \var full_u full semaphore U.
- * \var full_d full semaphore D.
- * \var full_w full semaphore W.
+/**!
+ *
+ * \var sem_t full;
+ * full semaphore A.
+ **
+ * \var sem_t full;
+ * full semaphore A.
+ **
+ * \var sem_t full_e;
+ * full semaphore E.
+ **
+ * \var sem_t full_i;
+ * full semaphore I.
+ **
+ * \var sem_t full_o;
+ * full semaphore O.
+ **
+ * \var sem_t full_u;
+ * full semaphore U.
+ **
+ * \var sem_t full_d;
+ * full semaphore D.
+ **
+ * \var sem_t full_w;
+ * full semaphore W.
+ **
+ * \var sem_t cli_sock;
+ * client socket semaphore.
+ **
+ * \var sem_t cli_sock_free;
+ * client socket free semaphore.
  */
 sem_t full, full_e, full_i, full_o, full_u, full_d, full_w;
 sem_t cli_sock, cli_sock_free;
@@ -284,6 +383,11 @@ void* thread_handler(void* arg) {
     return NULL;
 }
 
+/**
+ * Run the main aerver.
+ * @param argc the argument count.
+ * @param argv the arguments list.
+ */
 int main(int argc, char* argv[]) {
     if (argc != 2) DieWithUserMessage("Parameter(s)", "<Server Port/Service>");
     int servSock = SetupTCPServerSocket(argv[1]);
