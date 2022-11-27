@@ -309,38 +309,211 @@ void* thread_handler(void* arg) {
             /* printf("%s --> %s\n", msg, msg); */
             int digits = 0;
             int position = -1;
-            int space = -1;
+            int space = 0;
+
             for (int i = 0; i <= strlen(msg); i++) {
                 if (isdigit(msg[i])) {
                     if (position == -1) {
                         position = i;
                     }
                     digits += 1;
-                    /* sum += msg[i] - '0'; */
                 }
                 if (msg[i] == ' ') {
                     space = i;
                 }
             }
-            if (space == 1) {
-                sum += msg[0] - '0';
-                if (digits == 2) {
-                    sum += msg[2] - '0';
-                }
-            } else if (space == 0) {
-                if (digits == 2) {
-                    sum += atoi((msg + position));
+            /* printf("msg: %s digits: %d spaces: %d pos: %d\n", msg, digits, */
+            /*        space, position); */
+
+            if (digits > 0) {
+                if (space == 1 && digits > 0) {
+                    if (msg[0] != ' ') {
+                        if (digits == 2) {
+                            char d[3];
+                            d[2] = '\0';
+                            d[0] = msg[position];
+                            if (isdigit(msg[position + 1])) {
+                                d[1] = msg[position + 1];
+                                int n = atoi(d);
+                                /* printf("n: %d s: %d d: %d\t ", n, space, */
+                                /*        digits); */
+                                sum += n;
+                            } else {
+                                int n = msg[position] - '0';
+                                /* printf("n: %d s: %d d: %d\t ", n, space, */
+                                /*        digits); */
+                                sum += n;
+                                if (isdigit(msg[position + 2])) {
+                                    n = msg[position + 2] - '0';
+                                    /* printf("n: %d s: %d d: %d\t ", n, space,
+                                     */
+                                    /*        digits); */
+                                    sum += n;
+                                }
+                            }
+                        } else if (digits == 3) {
+                            int n = atoi(msg + position);
+                            /* printf("n: %d s: %d d: %d\t ", n, space, digits);
+                             */
+                            sum += n;
+                        } else {
+                            int n = msg[position] - '0';
+                            /* printf("n: %d s: %d d: %d\t ", n, space, digits);
+                             */
+                            sum += n;
+                        }
+                    } else {
+                        if (digits == 2) {
+                            char d[3];
+                            d[2] = '\0';
+                            d[0] = msg[position];
+                            if (isdigit(msg[position + 1])) {
+                                d[1] = msg[position + 1];
+                                int n = atoi(d);
+                                /* printf("n: %d s: %d d: %d\t ", n, space, */
+                                /* digits); */
+                                sum += n;
+                            } else {
+                                int n = msg[position] - '0';
+                                /* printf("n: %d s: %d d: %d\t ", n, space, */
+                                /*        digits); */
+                                sum += n;
+                                if (isdigit(msg[position + 2])) {
+                                    n = msg[position + 2] - '0';
+                                    /* printf("n: %d s: %d d: %d\t ", n, space,
+                                     */
+                                    /*        digits); */
+                                    sum += n;
+                                }
+                            }
+                        } else if (digits == 3) {
+                            char d[4];
+                            d[3] = '\0';
+                            if (msg[3] == ' ') {
+                                d[0] = msg[0];
+                                d[1] = msg[1];
+                                d[2] = msg[2];
+                                int n = atoi(d);
+                                /* printf("n: %d s: %d d: %d\t ", n, space, */
+                                /*        digits); */
+                                sum += n;
+                            } else {
+                                int n = atoi(msg + position);
+                                /* printf("n: %d s: %d d: %d\t ", n, space, */
+                                /*        digits); */
+                                sum += n;
+                            }
+                        } else if (digits == 1) {
+                            int n = msg[position] - '0';
+                            /* printf("n: %d s: %d d: %d\t ", n, space, digits);
+                             */
+                            sum += n;
+                        }
+                    }
+                } else if (space == 0 && digits > 0) {
+                    if (digits == 2) {
+                        char d[3];
+                        d[2] = '\0';
+                        d[0] = msg[position];
+                        if (isdigit(msg[position + 1])) {
+                            d[1] = msg[position + 1];
+                            int n = atoi(d);
+                            /* printf("n: %d s: %d d: %d\t ", n, space, digits);
+                             */
+                            sum += n;
+                        } else {
+                            int n = msg[position] - '0';
+                            /* printf("n: %d s: %d d: %d\t ", n, space, digits);
+                             */
+                            sum += n;
+                            if (isdigit(msg[position + 2])) {
+                                n = msg[position + 2] - '0';
+                                /* printf("n: %d s: %d d: %d\t ", n, space, */
+                                /*        digits); */
+                                sum += n;
+                            }
+                        }
+                    } else if (digits > 0 && digits < 2) {
+                        int n = msg[position] - '0';
+                        /* printf("n: %d s: %d d: %d\t ", n, space, digits); */
+                        sum += n;
+                    } else {
+                        char d[4];
+                        d[3] = '\0';
+                        d[0] = msg[position];
+                        d[1] = msg[position + 1];
+                        d[2] = msg[position + 2];
+                        int n = atoi(d);
+                        /* printf("n: %d s: %d d: %d\t ", n, space, digits); */
+                        sum += n;
+                    }
+
+                } else if (space == 2 && digits > 0) {
+                    if (digits == 1) {
+                        int n = msg[position] - '0';
+                        /* printf("n: %d s: %d d: %d\t ", n, space, digits); */
+                        sum += n;
+                    } else if (digits == 2) {
+                        char d[3];
+                        d[2] = '\0';
+                        d[0] = msg[position];
+                        if (msg[position + 1] == ' ') {
+                            int n = msg[position] - '0';
+                            /* printf("n: %d s: %d d: %d\t ", n, space, digits);
+                             */
+                            sum += n;
+                            if (isdigit(msg[position + 2])) {
+                                n = msg[position + 2] - '0';
+                                /* printf("n: %d s: %d d: %d\t ", n, space, */
+                                /*        digits); */
+                                sum += n;
+                                d[1] = '\0';
+                            }
+                        } else {
+                            if (isdigit(msg[position + 1])) {
+                                d[1] = msg[position + 1];
+                                int n = atoi(d);
+                                /* printf("n: %d s: %d d: %d\t ", n, space, */
+                                /*        digits); */
+                                sum += n;
+                            }
+                        }
+                    } else if (digits == 3) {
+                        char d[4];
+                        d[3] = '\0';
+                        d[0] = msg[position];
+                        d[1] = msg[position + 1];
+                        d[2] = msg[position + 2];
+                        int n = atoi(d);
+                        /* printf("n: %d s: %d d: %d\t ", n, space, digits); */
+                        sum += n;
+                    }
+
                 } else {
-                    sum += msg[position] - '0';
-                }
-            } else {
-                if (digits == 2) {
-                    sum += msg[position] - '0';
-                    sum += msg[1] - '0';
-                } else if (digits == 3) {
-                    sum += atoi(msg);
-                } else {
-                    sum += msg[position] - '0';
+                    if (digits == 2) {
+                        int n = msg[position] - '0';
+                        /* printf("n: %d s: %d d: %d\t ", n, space, digits); */
+                        sum += n;
+                        n = msg[1] - '0';
+                        /* printf("n: %d s: %d d: %d\t ", n, space, digits); */
+                        sum += n;
+                    } else if (digits == 3) {
+                        char d[4];
+                        d[3] = '\0';
+                        d[0] = msg[position];
+                        d[1] = msg[position + 1];
+                        d[2] = msg[position + 2];
+                        int n = atoi(d);
+                        /* printf("n: %d s: %d d: %d\t ", n, space, digits); */
+                        sum += n;
+                    } else {
+                        if (digits == 0) {
+                            int n = msg[position] - '0';
+                            /* printf("n: %d s: %d d: %d\t ", n, space, digits);
+                             */
+                            sum += n;
+                        }
+                    }
                 }
             }
             enQueue(threadQw, msg);
