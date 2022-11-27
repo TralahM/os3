@@ -74,7 +74,7 @@ int main(int argc, char* argv[]) {
             /* printf("Send3: %s  len: %d  \n", sbuf, strlen(sbuf)); */
             /* printf("Send: %s  len: %d\n", e_f, strlen(e_f)); */
             /* n = send(sock, &nbuf, 8, 0); */
-            n = PutMsg(sbuf, 8, channel);
+            n = PutMsg((uint8_t*)sbuf, 8, channel);
             if (n < 1) {
                 DieWithSystemMessage("SendMsg Failed\n");
             }
