@@ -195,11 +195,28 @@ sem_t full, full_e, full_i, full_o, full_u, full_d, full_w;
 sem_t cli_sock, cli_sock_free;
 
 /**
+ * Return the name of this thread given its id.
+ * @param id the pthread_t id of the thread.
+ * @returns char* the name of the thread.
+ */
+char* thread_name(pthread_t id) {
+    if (id == thread_charA) return "A";
+    if (id == thread_charE) return "E";
+    if (id == thread_charI) return "I";
+    if (id == thread_charO) return "O";
+    if (id == thread_charU) return "U";
+    if (id == thread_digit) return "digit";
+    if (id == thread_writer) return "writer";
+    return "MAIN";
+}
+
+/**
  * Thread Handler to handle threads.
  * @param arg the arg parameter.
  */
 void* thread_handler(void* arg) {
     pthread_t id = pthread_self();
+    printf("Pthread %lu  %s\n", id, thread_name(id));
 
     if (pthread_equal(id, thread_charA)) {
         char* msg;
@@ -219,14 +236,16 @@ void* thread_handler(void* arg) {
         pthread_cond_signal(&comp_e);
         pthread_mutex_unlock(&mutex_a);
         sem_post(&full);
+        printf("Thread %s exited\n", thread_name(id));
         pthread_exit(NULL);
     }
 
     if (pthread_equal(id, thread_charE)) {
         /* printf("Pthread %lu  E\n", id); */
+        pthread_join(thread_charA, NULL);
         char* msg;
-        pthread_mutex_lock(&mutex_e);
-        pthread_cond_wait(&comp_e, &mutex_e);
+        pthread_mutex_lock(&mutex_a);
+        /* pthread_cond_wait(&comp_e, &mutex_a); */
         sem_wait(&full);
         while ((msg = deQueue(threadQe)) != NULL) {
             /* printf("Pthread %lu  E\n", id); */
@@ -234,18 +253,22 @@ void* thread_handler(void* arg) {
             /* printf("%s --> %s\n", msg, modified_msg); */
             enQueue(threadQi, modified_msg);
         }
+        /* pthread_cond_signal(&comp_e); */
         pthread_cond_signal(&comp_i);
-        pthread_mutex_unlock(&mutex_e);
+        pthread_mutex_unlock(&mutex_a);
         /* sem_post(&empty); */
         sem_post(&full_e);
+        printf("Thread %s exited\n", thread_name(id));
         pthread_exit(NULL);
     }
 
     if (pthread_equal(id, thread_charI)) {
         /* printf("Pthread %lu  I\n", id); */
+        pthread_join(thread_charE, NULL);
         char* msg;
         pthread_mutex_lock(&mutex_i);
-        pthread_cond_wait(&comp_i, &mutex_i);
+        /* pthread_cond_wait(&comp_e, &mutex_e); */
+        /* pthread_cond_wait(&comp_i, &mutex_i); */
         sem_wait(&full_e);
 
         while ((msg = deQueue(threadQi)) != NULL) {
@@ -257,14 +280,16 @@ void* thread_handler(void* arg) {
         pthread_cond_signal(&comp_o);
         pthread_mutex_unlock(&mutex_i);
         sem_post(&full_i);
+        printf("Thread %s exited\n", thread_name(id));
         pthread_exit(NULL);
     }
 
     if (pthread_equal(id, thread_charO)) {
         /* printf("Pthread %lu  O\n", id); */
+        pthread_join(thread_charI, NULL);
         char* msg;
         pthread_mutex_lock(&mutex_o);
-        pthread_cond_wait(&comp_o, &mutex_o);
+        /* pthread_cond_wait(&comp_o, &mutex_o); */
         sem_wait(&full_i);
         while ((msg = deQueue(threadQo)) != NULL) {
             /* printf("Pthread %lu  O\n", id); */
@@ -275,14 +300,16 @@ void* thread_handler(void* arg) {
         pthread_cond_signal(&comp_u);
         pthread_mutex_unlock(&mutex_o);
         sem_post(&full_o);
+        printf("Thread %s exited\n", thread_name(id));
         pthread_exit(NULL);
     }
 
     if (pthread_equal(id, thread_charU)) {
+        pthread_join(thread_charO, NULL);
         /* printf("Pthread %lu  U\n", id); */
         char* msg;
         pthread_mutex_lock(&mutex_u);
-        pthread_cond_wait(&comp_u, &mutex_u);
+        /* pthread_cond_wait(&comp_u, &mutex_u); */
         sem_wait(&full_o);
 
         while ((msg = deQueue(threadQu)) != NULL) {
@@ -291,17 +318,19 @@ void* thread_handler(void* arg) {
             /* printf("%s --> %s\n", msg, modified_msg); */
             enQueue(threadQd, modified_msg);
         }
-        pthread_cond_signal(&comp_d);
+        /* pthread_cond_signal(&comp_d); */
         pthread_mutex_unlock(&mutex_u);
         sem_post(&full_u);
+        printf("Thread %s exited\n", thread_name(id));
         pthread_exit(NULL);
     }
 
     if (pthread_equal(id, thread_digit)) {
+        pthread_join(thread_charU, NULL);
         /* printf("Pthread %lu  D\n", id); */
         char* msg;
         pthread_mutex_lock(&mutex_d);
-        pthread_cond_wait(&comp_d, &mutex_d);
+        /* pthread_cond_wait(&comp_d, &mutex_d); */
         sem_wait(&full_u);
 
         while ((msg = deQueue(threadQd)) != NULL) {
@@ -521,25 +550,27 @@ void* thread_handler(void* arg) {
         printf("\033[32mSum of all digits in request: %d\033[0m\n\n", sum);
         pthread_cond_signal(&comp_w);
         pthread_mutex_unlock(&mutex_d);
-        pthread_cond_signal(&comp_d);
-        pthread_cond_signal(&comp_u);
-        pthread_cond_signal(&comp_o);
-        pthread_cond_signal(&comp_e);
-        pthread_cond_signal(&comp_i);
-        pthread_mutex_unlock(&mutex_u);
-        pthread_mutex_unlock(&mutex_e);
-        pthread_mutex_unlock(&mutex_i);
-        pthread_mutex_unlock(&mutex_o);
+        /* pthread_cond_signal(&comp_d); */
+        /* pthread_cond_signal(&comp_u); */
+        /* pthread_cond_signal(&comp_o); */
+        /* pthread_cond_signal(&comp_e); */
+        /* pthread_cond_signal(&comp_i); */
+        /* pthread_mutex_unlock(&mutex_u); */
+        /* pthread_mutex_unlock(&mutex_e); */
+        /* pthread_mutex_unlock(&mutex_i); */
+        /* pthread_mutex_unlock(&mutex_o); */
         sem_post(&full_d);
+        printf("Thread %s exited\n", thread_name(id));
         pthread_exit(NULL);
     }
 
     if (pthread_equal(id, thread_writer)) {
+        pthread_join(thread_digit, NULL);
         /* printf("Pthread %lu  W\n", id); */
         char* msg;
         pthread_mutex_lock(&mutex_w);
-        pthread_cond_wait(&comp_w, &mutex_w);
-        sem_wait(&full_d);
+        /* pthread_cond_wait(&comp_w, &mutex_w); */
+        /* sem_wait(&full_d); */
 
         while ((msg = deQueue(threadQw)) != NULL) {
             /* printf("Pthread %lu  W\n", id); */
@@ -551,8 +582,11 @@ void* thread_handler(void* arg) {
         sem_post(&full_w);
         pthread_cond_signal(&comp_w);
         pthread_mutex_unlock(&mutex_w);
+        printf("Thread %s exited\n", thread_name(id));
         pthread_exit(NULL);
     }
+    printf("Thread %s exited\n", thread_name(id));
+    pthread_exit(NULL);
     return NULL;
 }
 
@@ -564,29 +598,47 @@ void* thread_handler(void* arg) {
 int main(int argc, char* argv[]) {
     if (argc != 2) DieWithUserMessage("Parameter(s)", "<Server Port/Service>");
     int servSock = SetupTCPServerSocket(argv[1]);
+    if (pipe(pipefds) == -1) {
+        DieWithSystemMessage("pipe() failed");
+    }
+
+    if (pthread_mutex_init(&mutex_e, NULL) != 0) {
+        DieWithSystemMessage("Mutex e Init Failed\n");
+    }
+    if (pthread_mutex_init(&mutex_i, NULL) != 0) {
+        DieWithSystemMessage("Mutex i Init Failed\n");
+    }
+    if (pthread_mutex_init(&mutex_o, NULL) != 0) {
+        DieWithSystemMessage("Mutex o Init Failed\n");
+    }
+    if (pthread_mutex_init(&mutex_u, NULL) != 0) {
+        DieWithSystemMessage("Mutex u Init Failed\n");
+    }
+    if (pthread_mutex_init(&mutex_d, NULL) != 0) {
+        DieWithSystemMessage("Mutex d Init Failed\n");
+    }
+    if (pthread_mutex_init(&mutex_w, NULL) != 0) {
+        DieWithSystemMessage("Mutex w Init Failed\n");
+    }
+    // process semaphore
+    sem_init(&cli_sock, 1, 1);
+    sem_init(&full, 0, 1);
+    sem_init(&empty, 0, 1);
+    sem_init(&full_e, 0, 1);
+    sem_init(&empty_e, 0, 1);
+    sem_init(&full_i, 0, 1);
+    sem_init(&empty_i, 0, 1);
+    sem_init(&full_o, 0, 1);
+    sem_init(&empty_o, 0, 1);
+    sem_init(&full_u, 0, 1);
+    sem_init(&empty_u, 0, 1);
+    sem_init(&full_d, 0, 1);
+    sem_init(&empty_d, 0, 1);
+    sem_init(&full_w, 1, 1);
+    sem_init(&empty_w, 1, 1);
 
     for (;;) {
         uint8_t* inBuf = (uint8_t*)calloc(4, sizeof(uint8_t));
-        if (pipe(pipefds) == -1) {
-            DieWithSystemMessage("pipe() failed");
-        }
-
-        // process semaphore
-        sem_init(&cli_sock, 1, 1);
-        sem_init(&full, 0, 1);
-        sem_init(&empty, 0, 1);
-        sem_init(&full_e, 0, 1);
-        sem_init(&empty_e, 0, 1);
-        sem_init(&full_i, 0, 1);
-        sem_init(&empty_i, 0, 1);
-        sem_init(&full_o, 0, 1);
-        sem_init(&empty_o, 0, 1);
-        sem_init(&full_u, 0, 1);
-        sem_init(&empty_u, 0, 1);
-        sem_init(&full_d, 0, 1);
-        sem_init(&empty_d, 0, 1);
-        sem_init(&full_w, 1, 1);
-        sem_init(&empty_w, 1, 1);
 
         sum = 0;
         int clntSock = AcceptTCPConnection(servSock);
@@ -594,116 +646,71 @@ int main(int argc, char* argv[]) {
         if (channel == NULL) {
             DieWithSystemMessage("fdopen failed");
         }
+        /* fflush(channel); */
 
         int QS = 0;
         pid_t serverDecoder;
         threadQa = createQueue();
-        /* enQueue(threadQa, "tralah"); */
-        /* printf("deQueue: %s\n", deQueue(threadQa)); */
         threadQe = createQueue();
         threadQi = createQueue();
         threadQo = createQueue();
         threadQu = createQueue();
         threadQd = createQueue();
         threadQw = createQueue();
+        ssize_t numBytesRcvd;
+        while ((numBytesRcvd = GetNextMsg(channel, inBuf, 8)) > 0) {
+            char* msg = (char*)DecodeFrame((inBuf));
+            printf("Received message: %s  (%d bytes)\n", msg,
+                   (int)numBytesRcvd);
+            /* enQueue(threadQa, (char*)DecodeFrame(inBuf)); */
+            enQueue(threadQa, msg);
+            // see if there is more data to recv
+            if (strlen(msg) < 3) {
+                break;
+            }
+            if (numBytesRcvd == 0) {
+                break;
+            }
+        }
+        QS = threadQa->size;
+        /* printf("Queue size: %d\n", QS); */
+
+        if ((pthread_create(&thread_charA, NULL, &thread_handler, NULL)) != 0)
+            DieWithSystemMessage("Failed to create thread A");
+        if ((pthread_create(&thread_charE, NULL, &thread_handler, NULL)) != 0)
+            DieWithSystemMessage("Failed to create thread E");
+        if ((pthread_create(&thread_charI, NULL, &thread_handler, NULL)) != 0)
+            DieWithSystemMessage("Failed to create thread I");
+        if ((pthread_create(&thread_charO, NULL, &thread_handler, NULL)) != 0)
+            DieWithSystemMessage("Failed to create thread O");
+        /* sleep(1); */
+        if ((pthread_create(&thread_charU, NULL, &thread_handler, NULL)) != 0)
+            DieWithSystemMessage("Failed to create thread U");
+        /* sleep(1); */
+        if ((pthread_create(&thread_digit, NULL, &thread_handler, NULL)) != 0)
+            DieWithSystemMessage("Failed to create thread D");
+        if ((pthread_create(&thread_writer, NULL, &thread_handler, NULL)) != 0)
+            DieWithSystemMessage("Failed to create thread W");
+
+        /* pthread_join(thread_charA, NULL); */
+        /* /1* pthread_cond_signal(&comp_a); *1/ */
+        /* pthread_join(thread_charE, NULL); */
+        /* pthread_join(thread_charI, NULL); */
+        /* pthread_join(thread_charO, NULL); */
+        /* pthread_join(thread_charU, NULL); */
+        /* pthread_join(thread_digit, NULL); */
+        pthread_join(thread_writer, NULL);
 
         if ((serverDecoder = fork()) < 0) {
             perror("serverDecoder fork failed");
         } else if (serverDecoder > 0) {
-            // acquire cli_sock
-            ssize_t numBytesRcvd;
-            // Send received string and receive again until end of stream
-            while ((numBytesRcvd = GetNextMsg(channel, inBuf, 8)) > 0) {
-                char* msg = (char*)DecodeFrame((inBuf));
-                printf("Received message: %s  (%d bytes)\n", msg,
-                       (int)numBytesRcvd);
-                /* enQueue(threadQa, (char*)DecodeFrame(inBuf)); */
-                enQueue(threadQa, msg);
-                // see if there is more data to recv
-                if (numBytesRcvd == 0) {
-                    break;
-                }
-            }
-            QS = threadQa->size;
-            /* printf("Queue size: %d\n", QS); */
-            if (pthread_mutex_init(&mutex_e, NULL) != 0) {
-                DieWithSystemMessage("Mutex e Init Failed\n");
-            }
-            if (pthread_mutex_init(&mutex_i, NULL) != 0) {
-                DieWithSystemMessage("Mutex i Init Failed\n");
-            }
-            if (pthread_mutex_init(&mutex_o, NULL) != 0) {
-                DieWithSystemMessage("Mutex o Init Failed\n");
-            }
-            if (pthread_mutex_init(&mutex_u, NULL) != 0) {
-                DieWithSystemMessage("Mutex u Init Failed\n");
-            }
-            if (pthread_mutex_init(&mutex_d, NULL) != 0) {
-                DieWithSystemMessage("Mutex d Init Failed\n");
-            }
-            if (pthread_mutex_init(&mutex_w, NULL) != 0) {
-                DieWithSystemMessage("Mutex w Init Failed\n");
-            }
-
-            if ((pthread_create(&thread_charA, NULL, &thread_handler, NULL)) !=
-                0)
-                DieWithSystemMessage("Failed to create thread A");
-            if ((pthread_create(&thread_charE, NULL, &thread_handler, NULL)) !=
-                0)
-                DieWithSystemMessage("Failed to create thread E");
-            if ((pthread_create(&thread_charI, NULL, &thread_handler, NULL)) !=
-                0)
-                DieWithSystemMessage("Failed to create thread I");
-            if ((pthread_create(&thread_charO, NULL, &thread_handler, NULL)) !=
-                0)
-                DieWithSystemMessage("Failed to create thread O");
-            /* sleep(1); */
-            if ((pthread_create(&thread_charU, NULL, &thread_handler, NULL)) !=
-                0)
-                DieWithSystemMessage("Failed to create thread U");
-            /* sleep(1); */
-            if ((pthread_create(&thread_digit, NULL, &thread_handler, NULL)) !=
-                0)
-                DieWithSystemMessage("Failed to create thread D");
-            if ((pthread_create(&thread_writer, NULL, &thread_handler, NULL)) !=
-                0)
-                DieWithSystemMessage("Failed to create thread W");
-
-            pthread_join(thread_charA, NULL);
-            pthread_cond_signal(&comp_a);
-            pthread_join(thread_charE, NULL);
-            pthread_join(thread_charI, NULL);
-            pthread_join(thread_charO, NULL);
-            pthread_join(thread_charU, NULL);
-            pthread_join(thread_digit, NULL);
-            pthread_join(thread_writer, NULL);
-
-            pthread_mutex_destroy(&mutex_a);
-            pthread_mutex_destroy(&mutex_e);
-            pthread_mutex_destroy(&mutex_i);
-            pthread_mutex_destroy(&mutex_o);
-            pthread_mutex_destroy(&mutex_u);
-            pthread_mutex_destroy(&mutex_d);
-            pthread_mutex_destroy(&mutex_w);
-
             waitpid(serverDecoder, NULL, 0);
-            sem_destroy(&full);
-            sem_destroy(&empty);
-            sem_destroy(&full_e);
-            sem_destroy(&empty_e);
-            sem_destroy(&full_i);
-            sem_destroy(&empty_i);
-            sem_destroy(&full_o);
-            sem_destroy(&empty_o);
-            sem_destroy(&full_u);
-            sem_destroy(&empty_u);
-            sem_destroy(&full_d);
-            sem_destroy(&empty_d);
-            sem_destroy(&full_w);
-            sem_destroy(&empty_w);
-            sem_destroy(&cli_sock);
-            sem_destroy(&cli_sock_free);
+
+            fflush(channel);
+            if (fclose(channel) == EOF) perror("fclose.");
+            printf("closed channel\n");
             close(clntSock);
+            printf("closed client socket.\n");
 
         } else {  // Decoder Process
             char outBuf[BUFFER_SIZE];
@@ -711,7 +718,7 @@ int main(int argc, char* argv[]) {
             MessageInfo* m_info = message_info_create();
             MessageFrame* m_frame = message_frame_create();
             int numRead = 0;
-            sem_wait(&full_w);
+            /* sem_wait(&full_w); */
 
             while ((numRead = read(pipefds[0], outBuf, 4)) != 0) {
                 p = (uint32_t*)outBuf;
@@ -733,14 +740,41 @@ int main(int argc, char* argv[]) {
                     break;
                 }
                 sem_post(&empty_w);
-                /* fflush(channel); */
             }
-            printf("Processed %s.\n", "");
-            fclose(channel);
-            printf("closed channel");
-            close(clntSock);
+            PutMsg(NULL, 0, channel);
+
+            printf("Processed.\n");
+            printf("Processed.\n");
+            /* if (fclose(channel) == EOF) perror("fclose."); */
+            exit(0);
         }
     }  // Per Each Client
+       //
+
+    pthread_mutex_destroy(&mutex_a);
+    pthread_mutex_destroy(&mutex_e);
+    pthread_mutex_destroy(&mutex_i);
+    pthread_mutex_destroy(&mutex_o);
+    pthread_mutex_destroy(&mutex_u);
+    pthread_mutex_destroy(&mutex_d);
+    pthread_mutex_destroy(&mutex_w);
+
+    sem_destroy(&full);
+    sem_destroy(&empty);
+    sem_destroy(&full_e);
+    sem_destroy(&empty_e);
+    sem_destroy(&full_i);
+    sem_destroy(&empty_i);
+    sem_destroy(&full_o);
+    sem_destroy(&empty_o);
+    sem_destroy(&full_u);
+    sem_destroy(&empty_u);
+    sem_destroy(&full_d);
+    sem_destroy(&empty_d);
+    sem_destroy(&full_w);
+    sem_destroy(&empty_w);
+    sem_destroy(&cli_sock);
+    sem_destroy(&cli_sock_free);
     close(servSock);
     return 0;
 }

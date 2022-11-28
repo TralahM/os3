@@ -23,6 +23,7 @@ int main(int argc, char* argv[]) {
     if (channel == NULL) {
         DieWithSystemMessage("fdopen failed");
     }
+    /* fflush(channel); */
     FILE* fp;
     pid_t clientEncoder;
     if ((clientEncoder = fork()) < 0) {
@@ -47,12 +48,14 @@ int main(int argc, char* argv[]) {
         }
         fclose(of);
         /* printf("fclose(of);\n"); */
+        fflush(channel);
         fclose(channel);
         /* printf("fclose(channel);\n"); */
         close(sock);
         printf("close(sock);\n");
         printf("Results written to result.txt\n");
         exit(0);
+
     } else {  // Encoder Process
         /* printf("clientEncoder process."); */
         // read input file
